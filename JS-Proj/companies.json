@@ -1,0 +1,79 @@
+{
+  "name": "companies",
+  "children": [
+    {
+      "name": "genomics + syn bio",
+      "children": [{ "name": "23andMe", "size": 7000 }]
+    },
+    {
+      "name": "digital therapies",
+      "children": [
+        { "name": "Verily", "size": 10000 },
+        { "name": "BrainScope", "size": 2300 },
+        { "name": "Mindstrong", "size": 2000 }
+      ]
+    },
+    {
+      "name": "chronic illness mgmt",
+      "children": [
+        { "name": "PatientsLikeMe", "size": 2500 },
+        { "name": "Flatiron Health", "size": 5500 }
+      ]
+    },
+    {
+      "name": "pharmaceutical",
+      "children": [
+        { "name": "Outcome Health", "size": 4700 },
+        { "name": "Blink Health", "size": 4500 }
+      ]
+    },
+    {
+      "name": "electronic health records",
+      "children": [
+        { "name": "Modernizing Medicine", "size": 4000 },
+        { "name": "drchrono", "size": 5000 }
+      ]
+    },
+    {
+      "name": "insurance",
+      "children": [
+        { "name": "Bright Health", "size": 4000 },
+        { "name": "Clover Health", "size": 4000 },
+        { "name": "Amino Health", "size": 2200 },
+        { "name": "Stride Health", "size": 2500 }
+      ]
+    },
+    {
+      "name": "small molecules",
+      "children": [
+        { "name": "Two Pore Guys", "size": 2500 },
+        { "name": "", "size": 4000 },
+        { "name": "", "size": 2200 }
+      ]
+    },
+    {
+      "name": "machine learning",
+      "children": [
+        { "name": "Ada Health", "size": 2600 },
+        { "name": "Mendel Health", "size": 1000 }
+      ]
+    },
+    {
+      "name": "womens' health",
+      "children": [
+        { "name": "Natural Cycles", "size": 2600 },
+        { "name": "", "size": 4000 }
+      ]
+    },
+    {
+      "name": "wellness + behavior",
+      "children": [
+        { "name": "Livongo Health", "size": 2500 },
+        { "name": "Omada Health", "size": 3000 },
+        { "name": "Virta Health", "size": 2200 },
+        { "name": "Able To", "size": 2300 },
+        { "name": "Jawbone", "size": 10200 }
+      ]
+    }
+  ]
+}
