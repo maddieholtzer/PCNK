@@ -3,6 +3,7 @@ import { View } from 'react-native';
 import StatusBarComponent from './src/components/status_bar';
 import SignInOptions from './src/components/sign_in_options';
 import firebase from 'react-native-firebase';
+import UserProfile from './src/components/user_profile/user_profile';
 
 class App extends React.Component {
   constructor() {
@@ -30,6 +31,7 @@ class App extends React.Component {
     return (
       <View>
         <StatusBarComponent style={statusBar}/>
+        <UserProfile />
       </View>
     );
   }
