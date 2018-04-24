@@ -33,7 +33,12 @@ class App extends React.Component {
       </View>
     );
   }
-
 }
+
+const styles = {
+  statusBar: {
+    barStyle: "light-content"
+  }
+};
 
 export default App;
