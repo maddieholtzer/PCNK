@@ -78,11 +78,11 @@ In order to determine which foods should display in a user's pantry, and in what
 
 ### Responsive Design - Multiple Mobile Screen Sizes
 
-The app will have to be seamlessly compatibile with any mobile device used to render it, where on iOS or Android.
+The app will have to be seamlessly compatible with any mobile device used to render it, where on iOS or Android.
 
 ### Styling for both iOS and Android
 
-Similarly, the process of prettifying the app for iOS and Android will be slightly differnet, and those differences must be accounted for. There are subtle differences: e.g. Androids have a native back button, which iPhones don't; nav bars on iPhones are centered while on Androids they are left-placed; Androids have a drawer menu, etc.
+Similarly, the process of prettifying the app for iOS and Android will be slightly different, and those differences must be accounted for. There are subtle differences: e.g. Androids have a native back button, which iPhones don't; nav bars on iPhones are centered while on Androids they are left-placed; Androids have a drawer menu, etc.
 
 ## Wireframes
 
