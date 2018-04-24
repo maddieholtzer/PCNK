@@ -36,19 +36,4 @@ class App extends React.Component {
 
 }
 
-const App = () => {
-  const { statusBar } = styles;
-  return (
-    <View>
-      <StatusBarComponent style={statusBar}/>
-    </View>
-  );
-};
-
-const styles = {
-  statusBar: {
-    barStyle: "light-content"
-  }
-};
-
 export default App;
