@@ -1,6 +1,7 @@
 import React from 'react';
 import { View } from 'react-native';
 import StatusBarComponent from './src/components/status_bar';
+import SignInOptions from './src/components/sign_in_options';
 import firebase from 'react-native-firebase';
 
 const App = () => {
