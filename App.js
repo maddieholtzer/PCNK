@@ -1,7 +1,8 @@
 import React from 'react';
 import { View } from 'react-native';
-import StatusBarComponent from './src/components/status_bar';
+import StatusBarComponent from './src/components/status_bar'; // always present
 import SignInOptions from './src/components/sign_in_options';
+import Pantry from './src/components/pantry';
 import firebase from 'react-native-firebase';
 
 class App extends React.Component {
@@ -24,12 +25,17 @@ class App extends React.Component {
   render() {
     // If the user has not authenticated
     if (!this.state.isAuthenticated) {
-      return null;
+      return (
+        <View>
+          <StatusBarComponent />
+          <Pantry /> // needs to swap places with SignInOptions for production
+        </View>
+      );
     }
-    const { statusBar } = styles;
     return (
       <View>
-        <StatusBarComponent style={statusBar}/>
+        <StatusBarComponent/>
+        <SignInOptions />
       </View>
     );
   }

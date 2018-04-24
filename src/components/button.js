@@ -3,15 +3,15 @@ import { Text, TouchableOpacity, Image } from 'react-native';
 import { Icon } from 'react-native-elements';
 
 const Button = ({ onPress, children, imgSource, buttonColor }) => {
-  const { buttonStyle, backgroundColor, textStyle } = styles;
+  const { buttonStyle, backgroundColor, textStyle, iconStyle } = styles;
 
   return (
     <TouchableOpacity
       style={buttonStyle}
-      style={{borderColor: buttonColor, backgroundColor: buttonColor}}
+      style={{ backgroundColor: buttonColor}}
       backgroundColor={backgroundColor}
       onPress={onPress} >
-      <Image source={imgSource} />
+      <Image source={imgSource} style={iconStyle} />
       <Text style={textStyle}>{children}</Text>
     </TouchableOpacity>
   );
@@ -19,15 +19,17 @@ const Button = ({ onPress, children, imgSource, buttonColor }) => {
 
 const styles = {
   buttonStyle: {
-    flex: 1,
-    alignSelf: 'stretch',
+    height: 40,
     borderRadius: 5,
     borderWidth: 1,
     marginLeft: 5,
-    marginRight: 5
+    marginRight: 5,
+    marginTop: 100,
+    flexDirection: 'row'
+
   },
   backgroundColor: {
-    backgroundColor: '#ff0700'
+    backgroundColor: '#ed4008'
   },
   textStyle: {
     alignSelf: 'center',
@@ -35,7 +37,14 @@ const styles = {
     fontSize: 16,
     fontWeight: '600',
     paddingTop: 10,
-    paddingBottom: 10
+    paddingBottom: 10,
+    flex: 2
+  },
+  iconStyle: {
+    height: 30,
+    width: 30,
+    paddingBottom: 10,
+    flex: 1
   }
 };
 
