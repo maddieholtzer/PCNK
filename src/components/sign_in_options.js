@@ -1,13 +1,45 @@
 import React from 'react';
 import { View, Image, Text } from 'react-native';
 import CustomButton from './button';
-import { Icon } from 'react-native-elements';
 import CardSection from './card_section';
 import AltButton from './alt_button';
+import { AccessToken, LoginManager } from 'react-native-fbsdk';
+import firebase from 'react-native-firebase'
 
 class SignInOptions extends React.Component {
   constructor() {
     super();
+  }
+
+  async facebookLogin () {
+    try {
+      const result = await LoginManager.logInWithReadPermissions(['public_profile', 'email']);
+
+      if (result.isCancelled) {
+        // <App />;
+        return;
+        // throw new Error('User cancelled request'); // Handle this however fits the flow of your app
+      }
+
+      console.log(`Login success with permissions: ${result.grantedPermissions.toString()}`);
+
+      // get the access token
+      const data = await AccessToken.getCurrentAccessToken();
+
+      if (!data) {
+        throw new Error('Something went wrong obtaining the users access token'); // Handle this however fits the flow of your app
+      }
+
+      // create a new firebase credential with the token
+      const credential = firebase.auth.FacebookAuthProvider.credential(data.accessToken);
+
+      // login with credential
+      const currentUser = await firebase.auth().signInAndRetrieveDataWithCredential(credential);
+      console.log(currentUser);
+      console.info(JSON.stringify(currentUser.user.toJSON()))
+    } catch (e) {
+      console.error(e);
+    }
   }
 
   render() {
@@ -27,26 +59,16 @@ class SignInOptions extends React.Component {
           </CardSection>
           <CardSection>
             <View style={halfLayoutStyle}>
-              <CustomButton buttonStyle={redButtonStyle}
-                            imgSource={logoIcon}
-                            textStyle={whiteTextStyle}>
-                Sign In With PCNK
-              </CustomButton>
               <View style={altButtonStyle}>
                 <AltButton
                   buttonStyle={blueButtonStyle}
                   textStyle={blueButtonWhiteTextStyle}
-                  imgSource={facebookIcon}>
+                  imgSource={facebookIcon}
+                  onPress={this.facebookLogin}>
                   Sign In with Facebook
                 </AltButton>
               </View>
-              <Text style={{fontSize: 18, alignSelf: 'center',
-                marginBottom: 20, color: '#333'}}>Or</Text>
-              <AltButton buttonStyle={redBorderStyle}
-                         textStyle={redTextStyle}
-                         imgSource={userIcon}>
-                Create Account
-              </AltButton>
+
             </View>
           </CardSection>
       </View>
@@ -82,7 +104,6 @@ const styles = {
     fontSize: 18,
     color: '#fff',
     paddingTop: 15,
-    paddingLeft: 45,
 
   },
 
@@ -108,6 +129,7 @@ const styles = {
     backgroundColor: "#425FB4",
     borderColor: '#425FB4',
     marginBottom: 50,
+    paddingRight: 15,
 
   },
 
