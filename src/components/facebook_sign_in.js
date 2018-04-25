@@ -37,7 +37,7 @@ class FacebookLogin extends React.Component {
 
       // login with credential
       const currentUser = await firebase.auth().signInAndRetrieveDataWithCredential(credential);
-
+      console.log(currentUser);
       console.info(JSON.stringify(currentUser.user.toJSON()))
     } catch (e) {
       console.error(e);
