@@ -16,11 +16,11 @@ class CreateAccount extends React.Component {
       <View>
       <Header title="Create Account" headerTextStyle={headerTextStyle}
       containerStyle={containerStyle}/>
-      <Field label="First Name" placeholder="First Name" />
-      <Field label="Last Name" placeholder="Last Name" />
-      <Field label="Phone Number" placeholder="Phone Number" />
-      <Field label="Password" placeholder="Password" />
-      <Field label="Confirm Password" placeholder="Confirm Password" />
+    <Field label="First Name" placeholderText="First Name" />
+      <Field label="Last Name" placeholderText="Last Name" />
+      <Field label="Phone Number" placeholderText="Phone Number" />
+      <Field label="Password" placeholderText="Password" />
+      <Field label="Confirm Password" placeholderText="Confirm Password" />
 
       <Button buttonStyle={redButtonStyle} textStyle={whiteTextStyle}>
         Create Account
@@ -62,7 +62,7 @@ const styles = {
 
   containerStyle: {
     paddingTop: 10,
-    flexDirection: 'row',
+    flexDirection: 'column',
     justifyContent: 'space-between',
     alignItems: 'center',
     height: 80,
@@ -74,6 +74,15 @@ const styles = {
     shadowOpacity: 0.1,
     shadowRadius: 2,
   },
+
+  iconStyle: {
+    height: 30,
+    width: 30,
+    marginLeft: 20,
+    marginRight: 10,
+    justifyContent: 'center',
+  },
+
 };
 
 export default CreateAccount;

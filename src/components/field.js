@@ -1,8 +1,8 @@
 import React from 'react';
 import { View, TextInput, Image, Text } from 'react-native';
 
-const Field = ({imgSource, label, placeholderText}) => {
-  const { containerStyle, textStyle, fieldTextStyle, iconStyle } = styles;
+const Field = ({imgSource, label, placeholderText, iconStyle}) => {
+  const { containerStyle, textStyle, fieldTextStyle } = styles;
   return (
     <View style={containerStyle}>
       <Image source={imgSource} style={iconStyle}/>
@@ -16,10 +16,10 @@ const Field = ({imgSource, label, placeholderText}) => {
 const styles = {
   containerStyle: {
     flexDirection: 'row',
-    justifyContent: 'space-between',
+    justifyContent: 'flex-start',
     marginLeft: 10,
     marginRight: 10,
-    marginTop: 30,
+    marginTop: 10,
     alignItems: 'center',
     backgroundColor: '#fff',
     borderColor: '#ccc',
@@ -28,18 +28,10 @@ const styles = {
     paddingBottom: 20,
   },
 
-  iconStyle: {
-    height: 30,
-    width: 30,
-    marginLeft: 20,
-    marginRight: 10,
-    justifyContent: 'center',
-  },
-
   textStyle: {
     fontWeight: '700',
     fontSize: 16,
-    flex: 1,
+    flex: 2,
     paddingLeft: 10,
     paddingRight: 10,
 
@@ -48,7 +40,7 @@ const styles = {
   fieldTextStyle: {
     color: '#ccc',
     fontSize: 18,
-    marginRight: 70,
+    flex: 2,
   },
 
 };
