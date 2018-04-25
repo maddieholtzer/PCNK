@@ -9,6 +9,7 @@ import React from 'react';
 import { AccessToken, LoginManager } from 'react-native-fbsdk';
 import firebase from 'react-native-firebase'
 import { View, Text, TouchableOpacity } from 'react-native';
+import App from '../../App';
 
 class FacebookLogin extends React.Component {
 // Calling the following function will open the FB login dialogue:
@@ -17,7 +18,9 @@ class FacebookLogin extends React.Component {
       const result = await LoginManager.logInWithReadPermissions(['public_profile', 'email']);
 
       if (result.isCancelled) {
-        throw new Error('User cancelled request'); // Handle this however fits the flow of your app
+        // <App />;
+        return;
+        // throw new Error('User cancelled request'); // Handle this however fits the flow of your app
       }
 
       console.log(`Login success with permissions: ${result.grantedPermissions.toString()}`);
