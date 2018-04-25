@@ -2,7 +2,8 @@ import React from 'react';
 import { View, Image, Text } from 'react-native';
 import CustomButton from './button';
 import { Icon } from 'react-native-elements';
-import CardSection from './card_section.js';
+import CardSection from './card_section';
+import AltButton from './alt_button';
 
 class SignInOptions extends React.Component {
   constructor() {
@@ -11,8 +12,11 @@ class SignInOptions extends React.Component {
 
   render() {
     const logoIcon = require('../../assets/pcnk_icon_only_white.png');
+    const facebookIcon = require('../../assets/facebook_icon.png');
+    const userIcon = require('../../assets/add_user_icon.png');
     const { layoutStyle, imageStyle, halfLayoutStyle, redButtonStyle,
-    blueButtonStyle, redBorderStyle, whiteTextStyle, redTextStyle } = styles;
+    blueButtonStyle, redBorderStyle, whiteTextStyle, redTextStyle,
+    blueButtonWhiteTextStyle, altButtonStyle } = styles;
     return (
       <View style={layoutStyle}>
           <CardSection>
@@ -27,11 +31,20 @@ class SignInOptions extends React.Component {
                             textStyle={whiteTextStyle}>
                 Sign In With PCNK
               </CustomButton>
-              <CustomButton buttonStyle={blueButtonStyle} textStyle={whiteTextStyle}> Sign In with Facebook</CustomButton>
+              <View style={altButtonStyle}>
+                <AltButton
+                  buttonStyle={blueButtonStyle}
+                  textStyle={blueButtonWhiteTextStyle}
+                  imgSource={facebookIcon}>
+                  Sign In with Facebook
+                </AltButton>
+              </View>
               <Text style={{fontSize: 18, alignSelf: 'center', marginBottom: 20, color: '#333'}}>Or</Text>
-              <CustomButton buttonStyle={redBorderStyle} textStyle={redTextStyle}>
+              <AltButton buttonStyle={redBorderStyle}
+                         textStyle={redTextStyle}
+                         imgSource={userIcon}>
                 Create Account
-              </CustomButton>
+              </AltButton>
             </View>
           </CardSection>
       </View>
@@ -47,6 +60,7 @@ const styles = {
     marginLeft: 5,
     marginRight: 5,
     marginTop: 10,
+    marginBottom: 20,
     backgroundColor: "#ed4008",
     borderColor: "#ed4008",
     alignItems: 'center',
@@ -61,11 +75,25 @@ const styles = {
     fontWeight: '600',
   },
 
+  blueButtonWhiteTextStyle: {
+    justifyContent: 'center',
+    fontSize: 18,
+    color: '#fff',
+    paddingTop: 15,
+    paddingLeft: 45,
+
+  },
+
   redTextStyle: {
-    alignSelf: 'center',
+    justifyContent: 'center',
     color: '#ed4008',
     fontSize: 18,
     fontWeight: '600',
+    paddingTop: 15,
+    paddingLeft: 60,
+  },
+
+  altButtonStyle: {
   },
 
   blueButtonStyle: {
@@ -74,9 +102,11 @@ const styles = {
     borderWidth: 1,
     marginLeft: 5,
     marginRight: 5,
-    backgroundColor: "blue",
-    borderColor: 'blue',
-    marginBottom: 50
+    marginTop: 10,
+    backgroundColor: "#425FB4",
+    borderColor: '#425FB4',
+    marginBottom: 50,
+
   },
 
   redBorderStyle: {
@@ -94,8 +124,8 @@ const styles = {
   },
 
   imageStyle: {
-    height: 150,
-    width: 150,
+    height: 250,
+    width: 250,
     alignSelf: 'center',
     resizeMode: 'contain',
     marginTop: 10,
