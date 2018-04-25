@@ -6,11 +6,16 @@ import Field from './field';
 
 const SignInForm = () => {
   const { headerTextStyle, containerStyle } = styles;
+  const leftHeaderButtonText = "Back";
+  const rightHeaderButtonText = 'Send Code';
   const phoneImage = require('../../assets/phone.png');
+  const iOSBack = require('../../assets/iOS_back_button.png');
+
   return (
     <View>
     <Header title="Sign In" headerTextStyle={headerTextStyle}
-    containerStyle={containerStyle}/>
+    containerStyle={containerStyle} imgSource={iOSBack}
+    linkTextLeft={leftHeaderButtonText} linkTextRight={rightHeaderButtonText} />
     <Picker />
     <Field imgSource={phoneImage} label="Phone" placeholderText="000-000-0000"/>
     </View>
@@ -19,7 +24,7 @@ const SignInForm = () => {
 
 const styles = {
   headerTextStyle: {
-    color: '#ed4008',
+    color: '#333333',
     fontSize: 22,
     fontWeight: '600',
   },

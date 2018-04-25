@@ -7,7 +7,8 @@ const Field = ({imgSource, label, placeholderText}) => {
     <View style={containerStyle}>
       <Image source={imgSource} style={iconStyle}/>
       <Text style={textStyle}>{label}</Text>
-      <TextInput placeholder={placeholderText} placeholderTextColor="#ccc"/>
+      <TextInput placeholder={placeholderText} placeholderTextColor="#ccc"
+                 style={fieldTextStyle}/>
     </View>
   );
 };
@@ -30,7 +31,7 @@ const styles = {
   iconStyle: {
     height: 30,
     width: 30,
-    marginLeft: 10,
+    marginLeft: 20,
     marginRight: 10,
     justifyContent: 'center',
   },
@@ -39,13 +40,15 @@ const styles = {
     fontWeight: '700',
     fontSize: 16,
     flex: 1,
-    paddingLeft: 5,
+    paddingLeft: 10,
+    paddingRight: 10,
 
   },
 
   fieldTextStyle: {
     color: '#ccc',
-    fontSize: 16,
+    fontSize: 18,
+    marginRight: 70,
   },
 
 };

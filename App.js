@@ -3,7 +3,8 @@ import { View } from 'react-native';
 import StatusBarComponent from './src/components/status_bar'; // always present
 import SignInOptions from './src/components/sign_in_options';
 import Pantry from './src/components/pantry';
-import SignInForm from './src/components/SignInForm';
+import SignInForm from './src/components/sign_in';
+import CreateAccount from './src/components/create_account';
 import firebase from 'react-native-firebase';
 
 class App extends React.Component {
@@ -38,7 +39,7 @@ class App extends React.Component {
     return (
       <View>
         <StatusBarComponent/>
-        <SignInForm />
+        <CreateAccount />
       </View>
     );
   }

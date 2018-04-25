@@ -13,13 +13,13 @@ class Header extends React.Component {
   }
 
   render() {
-    const iOSBack = require('../../assets/iOS_back_button.png');
-    const { title, headerTextStyle, containerStyle } = this.props;
+    const { title, headerTextStyle, containerStyle, linkTextLeft,
+      linkTextRight, imgSource } = this.props;
     return (
       <View style={containerStyle}>
-        <HeaderButton imgSource={iOSBack} linkText="Back" />
+        <HeaderButton imgSource={imgSource} linkTextLeft={linkTextLeft} />
         <Text style={headerTextStyle}>{title}</Text>
-        <HeaderButton linkText="Send Code" />
+        <HeaderButton linkTextRight={linkTextRight} />
       </View>
     );
   }

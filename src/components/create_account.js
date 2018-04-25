@@ -43,18 +43,19 @@ const styles = {
     borderColor: "#ed4008",
     alignItems: 'center',
     flexDirection: 'row',
+    justifyContent: 'center',
   },
 
   whiteTextStyle: {
     alignSelf: 'center',
-    marginLeft: 45,
     color: '#fff',
     fontSize: 18,
     fontWeight: '600',
+    marginRight: 40,
   },
 
   headerTextStyle: {
-    color: '#ed4008',
+    color: '#333333',
     fontSize: 22,
     fontWeight: '600',
   },

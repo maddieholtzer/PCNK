@@ -59,3 +59,5 @@ buck-out/
 /ios/Pods/
 google-services.json
 GoogleService-Info.plist
+
+ios/pcnkflex/Info.plist

@@ -31,8 +31,8 @@ const styles = {
     fontWeight: '700',
     fontSize: 16,
     flex: 1,
-    paddingLeft: 5,
-    
+    paddingLeft: 20,
+
   },
 
   pickerStyle: {
