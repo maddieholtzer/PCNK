@@ -4,6 +4,7 @@ import StatusBarComponent from './src/components/status_bar'; // always present
 import SignInOptions from './src/components/sign_in_options';
 import Pantry from './src/components/pantry';
 import Header from './src/components/header';
+import Picker from './src/components/picker';
 import firebase from 'react-native-firebase';
 
 class App extends React.Component {
@@ -40,6 +41,7 @@ class App extends React.Component {
         <StatusBarComponent/>
         <Header title="Sign In" headerTextStyle={headerTextStyle}
           containerStyle={containerStyle}/>
+        <Picker />
       </View>
     );
   }
