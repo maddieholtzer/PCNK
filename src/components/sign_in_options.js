@@ -27,11 +27,6 @@ class SignInOptions extends React.Component {
           </CardSection>
           <CardSection>
             <View style={halfLayoutStyle}>
-              <CustomButton buttonStyle={redButtonStyle}
-                            imgSource={logoIcon}
-                            textStyle={whiteTextStyle}>
-                Sign In With PCNK
-              </CustomButton>
               <View style={altButtonStyle}>
                 <AltButton
                   buttonStyle={blueButtonStyle}
@@ -40,13 +35,7 @@ class SignInOptions extends React.Component {
                   Sign In with Facebook
                 </AltButton>
               </View>
-              <Text style={{fontSize: 18, alignSelf: 'center',
-                marginBottom: 20, color: '#333'}}>Or</Text>
-              <AltButton buttonStyle={redBorderStyle}
-                         textStyle={redTextStyle}
-                         imgSource={userIcon}>
-                Create Account
-              </AltButton>
+
             </View>
           </CardSection>
       </View>
