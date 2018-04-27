@@ -32,7 +32,7 @@ class App extends React.Component {
 
 
     // If the user has not authenticated
-    if (!this.state.isAuthenticated) {
+    // if (!this.state.isAuthenticated) {
       return (
         <SafeAreaView style={{flex: 1, backgroundColor: '#eee'}}>
           <View>
@@ -41,15 +41,15 @@ class App extends React.Component {
           </View>
       </SafeAreaView>
       );
-    }
-    return (
-      <SafeAreaView style={{flex: 1, backgroundColor: '#eee'}}>
-        <View>
-          <StatusBarComponent/>
-          <Splash />
-        </View>
-    </SafeAreaView>
-    );
+    // }
+    // return (
+    //   <SafeAreaView style={{flex: 1, backgroundColor: '#eee'}}>
+    //     <View>
+    //       <StatusBarComponent/>
+    //       <Splash />
+    //     </View>
+    // </SafeAreaView>
+    // );
   }
 }
 
