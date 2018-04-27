@@ -6,7 +6,7 @@ import configureStore from './src/store/store';
 
 const store = configureStore();
 
-registerScreens();
+registerScreens(store, Provider);
 registerScreenVisibilityListener();
 
 const tabs = [{
