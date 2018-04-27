@@ -30,7 +30,6 @@ class App extends React.Component {
 
   render() {
 
-
     // If the user has not authenticated
     if (!this.state.isAuthenticated) {
       return (
