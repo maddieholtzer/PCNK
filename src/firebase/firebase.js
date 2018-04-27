@@ -5,8 +5,6 @@ import {userLoggedIn, userLoggedOut} from '../actions/auth'
 
 import * as Firebase from 'firebase';
 
-import config from './config'
-
 import { store } from '../../App'
 
 
