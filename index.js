@@ -1,6 +1,10 @@
 import {Platform} from 'react-native';
 import { Navigation } from 'react-native-navigation';
 import {registerScreens, registerScreenVisibilityListener} from './src/screens';
+import {Provider} from 'react-redux';
+import configureStore from './src/store/store';
+
+const store = configureStore();
 
 registerScreens();
 registerScreenVisibilityListener();
