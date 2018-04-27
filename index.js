@@ -1,13 +1,10 @@
 import React from 'react';
 import {Platform, SafeAreaView, View } from 'react-native';
-import { Navigation } from 'react-native-navigation';
+import { Navigation, Screen } from 'react-native-navigation';
 import {registerScreens, registerScreenVisibilityListener} from './src/screens';
 import {Provider} from 'react-redux';
 import configureStore from './src/store/configureStore';
-import SignInOptions from './src/components/sign_in_options';
 import firebase from 'react-native-firebase';
-import FacebookLogin from './src/components/facebook_sign_in';
-
 
 const store = configureStore();
 
@@ -64,3 +61,12 @@ Navigation.startTabBasedApp({
     justifyContent: 'center',
   }
 })
+
+Navigation.showModal({
+  screen: 'pcnk.SignIn', // unique ID registered with Navigation.registerScreen
+  title: 'Modal', // title of the screen as appears in the nav bar (optional)
+  passProps: {}, // simple serializable object that will pass as props to the modal (optional)
+  navigatorStyle: {}, // override the navigator style for the screen, see "Styling the navigator" below (optional)
+  navigatorButtons: {}, // override the nav buttons for the screen, see "Adding buttons to the navigator" below (optional)
+  animationType: 'slide-up' // 'none' / 'slide-up' , appear animation for the modal (optional, default 'slide-up')
+});

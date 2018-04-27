@@ -1,10 +1,9 @@
 import {Navigation, ScreenVisibilityListener} from 'react-native-navigation';
-
-import SignInOptions from './components/sign_in_options';
 import Pantry from './components/pantry';
 import UserProfile from './components/user_profile/user_profile';
 import Help from './components/help';
 import Map from './components/map';
+import SignInOptions from './components/sign_in_options';
 
 export function registerScreens(store, Provider){
   Navigation.registerComponent('pcnk.Pantry', () => Pantry, store, Provider);
