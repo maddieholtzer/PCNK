@@ -14,7 +14,7 @@ import FacebookLogin from './src/components/facebook_sign_in';
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
 import ReduxThunk from 'redux-thunk';
-// import reducers from './reducers';
+import reducers from './src/reducers';
 import Router from './Router';
 
 
@@ -46,7 +46,6 @@ class App extends React.Component {
       //     </View>
       // </SafeAreaView>
         <Provider store={store}>
-          <StatusBarComponent />
           <Router />
         </Provider>
       );
