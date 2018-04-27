@@ -3,7 +3,7 @@ import {Platform, SafeAreaView, View } from 'react-native';
 import { Navigation } from 'react-native-navigation';
 import {registerScreens, registerScreenVisibilityListener} from './src/screens';
 import {Provider} from 'react-redux';
-import configureStore from './src/store/store';
+import configureStore from './src/store/configureStore';
 import SignInOptions from './src/components/sign_in_options';
 import firebase from 'react-native-firebase';
 import FacebookLogin from './src/components/facebook_sign_in';
