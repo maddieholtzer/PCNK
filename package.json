@@ -21,12 +21,16 @@
     "preset": "react-native"
   },
   "dependencies": {
+    "babel": "^6.23.0",
     "fbjs": "^0.8.16",
-    "react": "^16.3.0-alpha.1",
+    "react": "^16.3.2",
     "react-native": "^0.54.4",
     "react-native-elements": "^0.19.1",
     "react-native-fbsdk": "^0.7.0",
     "react-native-firebase": "^4.0.0",
-    "react-native-vector-icons": "^4.6.0"
+    "react-native-vector-icons": "^4.6.0",
+    "react-redux": "^5.0.7",
+    "redux": "^4.0.0",
+    "redux-thunk": "^2.2.0"
   }
 }

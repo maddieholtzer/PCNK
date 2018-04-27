@@ -10,6 +10,13 @@ import firebase from 'react-native-firebase';
 import UserProfile from './src/components/user_profile/user_profile';
 import FacebookLogin from './src/components/facebook_sign_in';
 
+//redux
+import { Provider } from 'react-redux';
+import { createStore, applyMiddleware } from 'redux';
+import ReduxThunk from 'redux-thunk';
+import reducers from './reducers';
+import Router from './Router';
+
 
 class App extends React.Component {
   constructor() {
@@ -30,26 +37,19 @@ class App extends React.Component {
 
   render() {
 
-
-    // If the user has not authenticated
-    // if (!this.state.isAuthenticated) {
       return (
-        <SafeAreaView style={{flex: 1, backgroundColor: '#eee'}}>
-          <View>
-            <StatusBarComponent />
-            <SignInOptions /> // needs to swap places with SignInOptions for production
-          </View>
-      </SafeAreaView>
+      //   <SafeAreaView style={{flex: 1, backgroundColor: '#eee'}}>
+      //     <View>
+      //       <StatusBarComponent />
+      //       <SignInOptions /> // needs to swap places with SignInOptions for production
+      //     </View>
+      // </SafeAreaView>
+        <Provider store={store}>
+          <StatusBarComponent />
+          <Router />
+        </Provider>
       );
-    // }
-    // return (
-    //   <SafeAreaView style={{flex: 1, backgroundColor: '#eee'}}>
-    //     <View>
-    //       <StatusBarComponent/>
-    //       <Splash />
-    //     </View>
-    // </SafeAreaView>
-    // );
+
   }
 }
 
