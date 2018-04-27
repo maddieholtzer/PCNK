@@ -10,3 +10,6 @@ Users can:
   * Upload images of food to share
   * Claim food they see in a scrollable "pantry"
   * Grant specific groups access to foods they upload
+
+## Credit
+https://github.com/J-Priebe/react-native-facebook-firebase
