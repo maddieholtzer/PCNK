@@ -11,16 +11,15 @@ import { store } from '../../App'
 
 
 // init firebase
-const firebaseConfig = {
-  apiKey: config.API_KEY,
-  authDomain: config.AUTH_DOMAIN,
-  databaseURL: config.DATABASE_URL,
-  storageBucket: config.STORAGE_BUCKET,
-  messagingSenderId: config.MESSAGING_SENDER_ID
-}
-
-
-const firebaseApp = Firebase.initializeApp(firebaseConfig);
+var firebaseConfig = {
+  apiKey: "AIzaSyDwcWMUJOwTGlYAEPR5Epc4m3P3vvlviIs",
+  authDomain: "pcnkflex.firebaseapp.com",
+  databaseURL: "https://pcnkflex.firebaseio.com",
+  projectId: "pcnkflex",
+  storageBucket: "pcnkflex.appspot.com",
+  messagingSenderId: "26921944937"
+};
+const firebaseApp = firebase.initializeApp(firebaseConfig);
 
 const currentUser = () => {
   return firebaseApp.auth().currentUser
