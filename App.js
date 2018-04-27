@@ -1,14 +1,10 @@
-// import React from 'react';
 // import { View, SafeAreaView } from 'react-native';
 // import StatusBarComponent from './src/components/status_bar'; // always present
-// import SignInOptions from './src/components/sign_in_options';
 // import Pantry from './src/components/pantry';
 // import SignInForm from './src/components/sign_in';
 // import CreateAccount from './src/components/create_account';
 // import Splash from './src/components/splash';
-// import firebase from 'react-native-firebase';
 // import UserProfile from './src/components/user_profile/user_profile';
-// import FacebookLogin from './src/components/facebook_sign_in';
 // import { Navigation } from 'react-native-navigation';
 // import {registerScreens, registerScreenVisibilityListener} from './screens';
 //

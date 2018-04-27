@@ -17,7 +17,7 @@ var firebaseConfig = {
   storageBucket: "pcnkflex.appspot.com",
   messagingSenderId: "26921944937"
 };
-const firebaseApp = firebase.initializeApp(firebaseConfig);
+const firebaseApp = Firebase.initializeApp(firebaseConfig);
 
 const currentUser = () => {
   return firebaseApp.auth().currentUser
