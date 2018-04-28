@@ -2,7 +2,7 @@ import React from 'react';
 import {Platform, SafeAreaView, View } from 'react-native';
 import { Navigation, Screen } from 'react-native-navigation';
 import firebase from 'react-native-firebase';
-import init from './store/init';
+import {init} from './src/store/init';
 
 class App {
   appRoot = 'loading';
@@ -91,8 +91,8 @@ class App {
       case 'login': {
         Navigation.startSingleScreenApp({
           screen: {
-            screen: 'pcnk.Login',
-            title: 'Login',
+            screen: 'pcnk.SignInOptions',
+            title: 'SignInOptions',
             navigatorStyle: {
               navBarHidden: true
             }

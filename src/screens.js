@@ -6,6 +6,7 @@ import Map from './components/map';
 import SignInOptions from './components/sign_in_options';
 
 export function registerScreens(store, Provider){
+  Navigation.registerComponent('pcnk.SignInOptions', () => SignInOptions, store, Provider);
   Navigation.registerComponent('pcnk.Pantry', () => Pantry, store, Provider);
   Navigation.registerComponent('pcnk.UserProfile', () => UserProfile, store, Provider);
   Navigation.registerComponent('pcnk.Help', () => Help, store, Provider);

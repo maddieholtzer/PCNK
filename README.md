@@ -12,7 +12,7 @@ Users can:
   * Grant specific groups access to foods they upload
 
 ## Credit
-store, actions, reducers:
+##### store, actions, reducers:
 https://github.com/J-Priebe/react-native-facebook-firebase
-Switch between login screen and tab based app:
-https://github.com/wix/react-native-navigation/issues/2310
+##### Switch between login screen and tab based app:
+simonedavico's answer: https://github.com/wix/react-native-navigation/issues/2310

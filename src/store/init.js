@@ -1,6 +1,6 @@
 import {Provider} from 'react-redux';
 import configureStore from './configureStore';
-import {registerScreens, registerScreenVisibilityListener} from '../../screens';
+import {registerScreens, registerScreenVisibilityListener} from '../screens';
 
 export const init = async (): Promise<AppStore> => {
   const provider: AppProvider = (Provider: any);
