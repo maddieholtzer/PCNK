@@ -1,5 +1,6 @@
 import * as types from './actiontypes';
 import { userLoggedIn } from './auth';
+import { updateBio } from './profile';
 import { AccessToken, LoginManager } from 'react-native-fbsdk';
 import firebase from 'react-native-firebase';
 import { store } from '../../App';

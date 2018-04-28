@@ -1,13 +1,17 @@
 import React from 'react';
 import { Text, View } from 'react-native'; //desctructure import
 import firebase from 'react-native-firebase';
+import { store } from '../../../App';
 
 const UserProfileHeader = () => {
   const { textStyle, viewStyle } = styles;
   if (!firebase.User){
+    const firstname = store.getState().auth.currentUser.additionalUserInfo.profile.first_name;
+    const lastname = store.getState().auth.currentUser.additionalUserInfo.profile.last_name;
+    const name = firstname + " " + lastname;
     return (
       <View style={viewStyle}>
-        <Text style={textStyle}>HelloI'm a filler</Text>;
+        <Text style={textStyle}>{name}</Text>;
       </View>
     );
   }
