@@ -11,6 +11,28 @@ export const store = configureStore();
 registerScreens(store, Provider);
 registerScreenVisibilityListener();
 
+export const tabs = [{
+  label: 'Pantry',
+  screen: 'pcnk.Pantry',
+  icon: require('./assets/nav_icons/pcnk_icon_only_red_half_size.png'),
+  title: 'Pantry',
+}, {
+  label: 'Map',
+  screen: 'pcnk.Map',
+  icon: require('./assets/nav_icons/map_red_half_size.png'),
+  title: 'Map',
+}, {
+  label: 'Help',
+  screen: 'pcnk.Help',
+  icon: require('./assets/nav_icons/help_red_half_size.png'),
+  title: 'Help',
+}, {
+  label: 'UserProfile',
+  screen: 'pcnk.UserProfile',
+  icon: require('./assets/nav_icons/user_red_half_size.png'),
+  title: 'UserProfile',
+}];
+
 export class App extends React.Component {
   constructor(props) {
     super(props);
@@ -32,27 +54,6 @@ export class App extends React.Component {
   startApp(root) {
     switch(root) {
       case 'after-login': {
-        const tabs = [{
-          label: 'Pantry',
-          screen: 'pcnk.Pantry',
-          icon: require('./assets/nav_icons/pcnk_icon_only_red_half_size.png'),
-          title: 'Pantry',
-        }, {
-          label: 'Map',
-          screen: 'pcnk.Map',
-          icon: require('./assets/nav_icons/map_red_half_size.png'),
-          title: 'Map',
-        }, {
-          label: 'Help',
-          screen: 'pcnk.Help',
-          icon: require('./assets/nav_icons/help_red_half_size.png'),
-          title: 'Help',
-        }, {
-          label: 'UserProfile',
-          screen: 'pcnk.UserProfile',
-          icon: require('./assets/nav_icons/user_red_half_size.png'),
-          title: 'UserProfile',
-        }];
         Navigation.startTabBasedApp({
           tabs,
           animationType: Platform.OS === 'ios' ? 'slide-down' : 'fade',
