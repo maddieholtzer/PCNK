@@ -16,8 +16,8 @@ class App {
   }
 
   onStoreUpdate = () => {
-    const { currentUser } = store.getState().auth;
-    const newAppRoot = !!currentUser ? 'app' : 'login';
+    const { user } = store.getState().auth;
+    const newAppRoot = !!user ? 'app' : 'login';
     if(newAppRoot !== this.appRoot) {
       this.appRoot = newAppRoot;
       this.startApp();
@@ -25,11 +25,11 @@ class App {
   }
 
   attachToStore = store => {
-    const { currentUser } = store.getState().auth;
+    const { user } = store.getState().auth;
     // keep store ref, but it could also be passed to onStoreUpdate somehow?
     this.store = store;
     // this can be complex business logic depending on requirements
-    this.appRoot = !!currentUser ? 'app' : 'login';
+    this.appRoot = !!user ? 'app' : 'login';
     store.subscribe(this.onStoreUpdate);
   }
 
