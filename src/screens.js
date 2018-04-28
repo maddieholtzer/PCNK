@@ -3,9 +3,11 @@ import Pantry from './components/pantry';
 import UserProfile from './components/user_profile/user_profile';
 import Help from './components/help';
 import Map from './components/map';
+import Splash from './components/splash';
 import SignInOptions from './components/session/sign_in_options';
 
 export function registerScreens(store, Provider){
+  Navigation.registerComponent('pcnk.Splash', () => Splash, store, Provider);
   Navigation.registerComponent('pcnk.SignInOptions', () => SignInOptions, store, Provider);
   Navigation.registerComponent('pcnk.Pantry', () => Pantry, store, Provider);
   Navigation.registerComponent('pcnk.UserProfile', () => UserProfile, store, Provider);

@@ -54,6 +54,7 @@ export class App extends React.Component {
   startApp(root) {
     switch(root) {
       case 'after-login': {
+        console.log("I'm after-login under App");
         Navigation.startTabBasedApp({
           tabs,
           animationType: Platform.OS === 'ios' ? 'slide-down' : 'fade',
@@ -86,6 +87,7 @@ export class App extends React.Component {
       }
 
       case 'login': {
+        console.log("I'm login under App");
         Navigation.startSingleScreenApp({
           screen: {
             screen: 'pcnk.SignInOptions',
