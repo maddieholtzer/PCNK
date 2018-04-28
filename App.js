@@ -38,10 +38,13 @@ export class App extends React.Component {
     super(props);
     store.subscribe(this.onStoreUpdate.bind(this));
     store.dispatch(appActions.appInitialized());
+    console.log("Im under App constructor");
   }
 
   onStoreUpdate() {
       let {root} = store.getState().root;
+      
+      console.log("Im onStoreUpdate. Look!!!")
 
       // handle a root change
       // if your app doesn't change roots in runtime, you can remove onStoreUpdate() altogether
@@ -52,6 +55,9 @@ export class App extends React.Component {
     }
 
   startApp(root) {
+    console.log("auth user heyyyyyyyyyyyyyyyyyyyyyyyyyy");
+    console.log(store.getState().auth.currentUser);
+  
     switch(root) {
       case 'after-login': {
         console.log("I'm after-login under App");
@@ -92,6 +98,20 @@ export class App extends React.Component {
           screen: {
             screen: 'pcnk.SignInOptions',
             title: 'SignInOptions',
+            navigatorStyle: {
+              navBarHidden: true
+            }
+          }
+        });
+        break;
+      }
+      
+      case 'splash': {
+        console.log("I'm splash under App");
+        Navigation.startSingleScreenApp({
+          screen: {
+            screen: 'pcnk.Splash',
+            title: 'Splash',
             navigatorStyle: {
               navBarHidden: true
             }
