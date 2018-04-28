@@ -25,4 +25,6 @@ target 'pcnkflex' do
   pod 'Crashlytics', '~> 3.10.1'
   pod 'RNVectorIcons', :path => '../node_modules/react-native-vector-icons'
 
+  pod 'react-native-camera', :path => '../node_modules/react-native-camera'
+
 end
