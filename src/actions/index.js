@@ -2,7 +2,7 @@ import * as types from './actiontypes';
 import { userLoggedIn } from './auth';
 import { AccessToken, LoginManager } from 'react-native-fbsdk';
 import firebase from 'react-native-firebase';
-
+import { store } from '../../App';
 /*
 Action Creators
 */
@@ -29,12 +29,10 @@ export function appInitialized() {
 export function login() {
     return async function(dispatch, getState) {
       try {
-        dispatch(changeAppRoot('splash'));
         const result = await LoginManager.logInWithReadPermissions(['public_profile', 'email']);
 
         if (result.isCancelled) {
           // <App />;
-          dispatch(changeAppRoot('login'));
           return;
           // throw new Error('User cancelled request'); // Handle this however fits the flow of your app
         }
@@ -50,7 +48,6 @@ export function login() {
 
         // create a new firebase credential with the token
         const credential = firebase.auth.FacebookAuthProvider.credential(data.accessToken);
-
         // login with credential
         const currentUser = await firebase.auth().signInAndRetrieveDataWithCredential(credential);
         console.log(currentUser);
