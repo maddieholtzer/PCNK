@@ -118,30 +118,6 @@ class App {
 
 export default App;
 
-
-// Navigation.showModal({
-//   screen: 'pcnk.SignIn', // unique ID registered with Navigation.registerScreen
-//   title: 'Modal', // title of the screen as appears in the nav bar (optional)
-//   passProps: {}, // simple serializable object that will pass as props to the modal (optional)
-//   navigatorStyle: {}, // override the navigator style for the screen, see "Styling the navigator" below (optional)
-//   navigatorButtons: {}, // override the nav buttons for the screen, see "Adding buttons to the navigator" below (optional)
-//   animationType: 'slide-up' // 'none' / 'slide-up' , appear animation for the modal (optional, default 'slide-up')
-// });
-
-
-// import { View, SafeAreaView } from 'react-native';
-// import StatusBarComponent from './src/components/status_bar'; // always present
-// import Pantry from './src/components/pantry';
-// import SignInForm from './src/components/sign_in';
-// import CreateAccount from './src/components/create_account';
-// import Splash from './src/components/splash';
-// import UserProfile from './src/components/user_profile/user_profile';
-// import { Navigation } from 'react-native-navigation';
-// import {registerScreens, registerScreenVisibilityListener} from './screens';
-//
-// // screen related book keeping
-//
-//
 // class App extends React.Component {
 //   constructor() {
 //     super();
@@ -189,5 +165,3 @@ export default App;
 //   },
 //
 // };
-//
-// export default App;
