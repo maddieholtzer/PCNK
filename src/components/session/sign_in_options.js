@@ -1,8 +1,8 @@
 import React from 'react';
 import { View, Image, Text } from 'react-native';
-import CustomButton from './button';
-import CardSection from './card_section';
-import AltButton from './alt_button';
+import CustomButton from '../button';
+import CardSection from '../card_section';
+import AltButton from '../alt_button';
 import { AccessToken, LoginManager } from 'react-native-fbsdk';
 import firebase from 'react-native-firebase'
 
@@ -43,9 +43,9 @@ class SignInOptions extends React.Component {
   }
 
   render() {
-    const logoIcon = require('../../assets/pcnk_icon_only_white.png');
-    const facebookIcon = require('../../assets/facebook_icon.png');
-    const userIcon = require('../../assets/add_user_icon.png');
+    const logoIcon = require('../../../assets/pcnk_icon_only_white.png');
+    const facebookIcon = require('../../../assets/facebook_icon.png');
+    const userIcon = require('../../../assets/add_user_icon.png');
     const { layoutStyle, imageStyle, halfLayoutStyle, redButtonStyle,
     blueButtonStyle, redBorderStyle, whiteTextStyle, redTextStyle,
     blueButtonWhiteTextStyle, altButtonStyle } = styles;
@@ -53,7 +53,7 @@ class SignInOptions extends React.Component {
       <View style={layoutStyle}>
           <CardSection>
               <View style={halfLayoutStyle}>
-                <Image source={require('../../assets/logo_transparent_background.png')}
+                <Image source={require('../../../assets/logo_transparent_background.png')}
                   style={imageStyle}/>
               </View>
           </CardSection>

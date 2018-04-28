@@ -38,3 +38,4 @@ https://github.com/JuneDomingo/movieapp/tree/feature/similar-movies
 https://medium.com/@scottianstewart/react-native-add-app-icons-and-launch-screens-onto-ios-and-android-apps-3bfbc20b7d4c
 ##### Switch between single screen for login and tab based app:
 simonedavico's answer: https://github.com/wix/react-native-navigation/issues/2310
+Alvin Chau's tutorial: https://github.com/keri4141/React-Native-Navigation-Redux-Example
