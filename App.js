@@ -3,14 +3,15 @@ import { Platform } from 'react-native';
 import { Navigation, Screen } from 'react-native-navigation';
 import firebase from 'react-native-firebase';
 import { Provider } from 'react-redux';
-import configureStore from './configureStore';
-import { registerScreens, registerScreenVisibilityListener } from '../screens';
+import configureStore from './src/store/configureStore';
+import { registerScreens, registerScreenVisibilityListener } from './src/screens';
+import * as appActions from "./src/actions/index";
 
 export const store = configureStore();
 registerScreens(store, Provider);
 registerScreenVisibilityListener();
 
-class App extends React.component {
+export class App extends React.Component {
   constructor(props) {
     super(props);
     store.subscribe(this.onStoreUpdate.bind(this));
@@ -102,53 +103,3 @@ class App extends React.component {
     }
   }
 }
-
-export default App;
-
-// class App extends React.Component {
-//   constructor() {
-//     super();
-//     this.state = {
-//       isAuthenticated: false,
-//     };
-//   }
-//
-//   componentDidMount() {
-//     firebase.auth().signInAnonymously()
-//       .then(() => {
-//         this.setState({
-//           isAuthenticated: true,
-//         });
-//       });
-//   }
-//
-//   render() {
-//
-//     // If the user has not authenticated
-//     if (!this.state.isAuthenticated) {
-//       return (
-//         <SafeAreaView style={{flex: 1, backgroundColor: '#eee'}}>
-//           <View>
-//             <StatusBarComponent />
-//              <Splash /> // needs to swap places with SignInOptions for production
-//           </View>
-//       </SafeAreaView>
-//       );
-//     }
-//     return (
-//       <SafeAreaView style={{flex: 1, backgroundColor: '#eee'}}>
-//         <View>
-//           <StatusBarComponent/>
-//           <SignInOptions />
-//         </View>
-//     </SafeAreaView>
-//     );
-//   }
-// }
-//
-// const styles = {
-//   statusBar: {
-//     barStyle: "dark-content"
-//   },
-//
-// };
