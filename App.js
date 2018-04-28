@@ -1,26 +1,18 @@
 import React from 'react';
 import {Platform, SafeAreaView, View } from 'react-native';
 import { Navigation, Screen } from 'react-native-navigation';
-import {registerScreens, registerScreenVisibilityListener} from './src/screens';
-import {Provider} from 'react-redux';
-import configureStore from './src/store/configureStore';
 import firebase from 'react-native-firebase';
+import init from './store/init';
 
 class App {
   appRoot = 'loading';
   store = {};
 
   constructor() {
-    this.init()
+    init()
       .then(this.attachToStore)
       .then(this.startApp)
       .catch(err => console.log('App init error', err.message))
-  }
-
-  init() {
-    const store = configureStore();
-    registerScreens(store, Provider);
-    registerScreenVisibilityListener();
   }
 
   onStoreUpdate = () => {
