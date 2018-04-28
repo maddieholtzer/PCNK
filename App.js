@@ -1,41 +1,36 @@
 import React from 'react';
-import {Platform, SafeAreaView, View } from 'react-native';
+import { Platform } from 'react-native';
 import { Navigation, Screen } from 'react-native-navigation';
 import firebase from 'react-native-firebase';
-import {init} from './src/store/init';
+import { Provider } from 'react-redux';
+import configureStore from './configureStore';
+import { registerScreens, registerScreenVisibilityListener } from '../screens';
 
-class App {
-  appRoot = 'loading';
-  store = {};
+export const store = configureStore();
+registerScreens(store, Provider);
+registerScreenVisibilityListener();
 
-  constructor() {
-    init()
-      .then(this.attachToStore)
-      .then(this.startApp)
-      .catch(err => console.log('App init error', err.message))
+class App extends React.component {
+  constructor(props) {
+    super(props);
+    store.subscribe(this.onStoreUpdate.bind(this));
+    store.dispatch(appActions.appInitialized());
   }
 
-  onStoreUpdate = () => {
-    const { user } = store.getState().auth;
-    const newAppRoot = !!user ? 'app' : 'login';
-    if(newAppRoot !== this.appRoot) {
-      this.appRoot = newAppRoot;
-      this.startApp();
+  onStoreUpdate() {
+      let {root} = store.getState().root;
+
+      // handle a root change
+      // if your app doesn't change roots in runtime, you can remove onStoreUpdate() altogether
+      if (this.currentRoot != root) {
+        this.currentRoot = root;
+        this.startApp(root);
+      }
     }
-  }
 
-  attachToStore = store => {
-    const { user } = store.getState().auth;
-    // keep store ref, but it could also be passed to onStoreUpdate somehow?
-    this.store = store;
-    // this can be complex business logic depending on requirements
-    this.appRoot = !!user ? 'app' : 'login';
-    store.subscribe(this.onStoreUpdate);
-  }
-
-  startApp = () => {
-    switch(this.appRoot) {
-      case 'app': {
+  startApp(root) {
+    switch(root) {
+      case 'after-login': {
         const tabs = [{
           label: 'Pantry',
           screen: 'pcnk.Pantry',
