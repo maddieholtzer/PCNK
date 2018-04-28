@@ -1,11 +1,4 @@
 import React from 'react';
-// import { View } from 'react-native';
-// const FBSDK = require('react-native-fbsdk');
-// const {
-//   LoginButton,
-//   AccessToken
-// } = FBSDK;
-
 import { AccessToken, LoginManager } from 'react-native-fbsdk';
 import firebase from 'react-native-firebase'
 import { View, Text, TouchableOpacity } from 'react-native';
@@ -38,7 +31,7 @@ class FacebookLogin extends React.Component {
       // login with credential
       const currentUser = await firebase.auth().signInAndRetrieveDataWithCredential(credential);
       console.log(currentUser);
-      console.info(JSON.stringify(currentUser.user.toJSON()))
+      console.info(JSON.stringify(currentUser.user.toJSON()));
     } catch (e) {
       console.error(e);
     }

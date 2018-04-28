@@ -1,5 +1,3 @@
- 'use strict'
-
 import {
   UPDATE_PROFILE_SUCCESS
 } from '../actions/profile'
