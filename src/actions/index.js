@@ -1,5 +1,5 @@
 import * as types from './actiontypes';
-import { userLoggedIn } from './auth';
+import { userLoggedIn, userLoggedOut } from './auth';
 import { startLoading, endLoading } from './loading';
 import { updateBio } from './profile';
 import { AccessToken, LoginManager } from 'react-native-fbsdk';
@@ -61,5 +61,16 @@ export function login() {
         console.error(e);
       }
       dispatch(endLoading());
+    };
+  }
+
+export function logout() {
+    return async function(dispatch, getState) {
+      try {
+        dispatch(userLoggedOut());
+        dispatch(changeAppRoot('login'));
+      } catch (e) {
+        console.error(e);
+      }
     };
   }
