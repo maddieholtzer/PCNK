@@ -1,7 +1,7 @@
 import React from 'react';
 import { Text, TouchableOpacity, Image } from 'react-native';
 
-const CustomButton = ({ onPress, children, imgSource, buttonStyle, textStyle}) => {
+const IconButton = ({ onPress, children, imgSource, buttonStyle, textStyle}) => {
   const { iconStyle } = styles;
 
   return (
@@ -16,12 +16,10 @@ const CustomButton = ({ onPress, children, imgSource, buttonStyle, textStyle}) =
 
 const styles = {
   iconStyle: {
-    height: 30,
-    width: 30,
-    marginLeft: 10,
-    marginRight: 10,
+    height: 64,
+    width: 64,
     justifyContent: 'center',
   }
 };
 
-export default CustomButton;
+export default IconButton;
