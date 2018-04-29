@@ -1,16 +1,21 @@
 import React from 'react';
-import { View, Text, Image, Dimensions } from 'react-native';
+import { View, Text, Image, Dimensions, Slider } from 'react-native';
 import CustomButton from './icon_button';
 import {Navigation} from 'react-native-navigation';
 
 const FinalPhotoDeets = (props) => {
-    const { textStyle, containerStyle, imageStyle, imageContainer, textContainer,
-      otherContainer, buttonStyle, iconStyle } = styles;
+  const { textStyle, containerStyle, imageStyle, imageContainer, textContainer,
+    otherContainer, buttonStyle, iconStyle } = styles;
   return (
     <View style={containerStyle}>
         <View style={imageContainer}>
           <Image source={{uri: props.img}} style={imageStyle}/>
         </View>
+        <Slider
+          step={1}
+          maximumValue={100}
+          value={5}
+        />
           <View style={otherContainer}>
             <CustomButton style={buttonStyle}
                           imgSource={require('../../assets/X-mark.png')}
@@ -24,11 +29,7 @@ const FinalPhotoDeets = (props) => {
                           imgSource={require('../../assets/check.png')}
                           textStyle={{fontSize: 20, alignSelf: 'center', marginTop: 10}}
                           onPress={() => {
-                            Navigation.showModal({
-                              screen: 'pcnk.CheckPhotoQuality',
-                              title: 'Check Photo Quality',
-                              passProps: {img: props.img},
-                            });
+                            Navigation.dismissAllModals();
                           }}
                           >
               Yes
@@ -56,7 +57,7 @@ const styles = {
   },
 
   imageContainer: {
-    flex: 4,
+    flex: 1,
     marginTop: 0,
   },
 
