@@ -3,6 +3,8 @@ import Pantry from './components/pantry';
 import UserProfile from './components/user_profile/user_profile';
 import Help from './components/help';
 import Map from './components/map';
+import Camera from './components/camera'
+import CheckPhotoQuality from './components/check_photo_quality';
 import Splash from './components/splash';
 import SignInOptions from './components/session/sign_in_options';
 
@@ -13,6 +15,8 @@ export function registerScreens(store, Provider){
   Navigation.registerComponent('pcnk.UserProfile', () => UserProfile, store, Provider);
   Navigation.registerComponent('pcnk.Help', () => Help, store, Provider);
   Navigation.registerComponent('pcnk.Map', () => Map, store, Provider);
+  Navigation.registerComponent('pcnk.Camera', () => Camera, store, Provider);
+  Navigation.registerComponent('pcnk.CheckPhotoQuality', () => CheckPhotoQuality, store, Provider);
 }
 
 export function registerScreenVisibilityListener(){

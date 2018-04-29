@@ -20,9 +20,8 @@ target 'pcnkflex' do
   pod 'Firebase/Messaging'
   pod 'Firebase/RemoteConfig'
   pod 'Firebase/Storage'
-  
+
   pod 'Fabric', '~> 1.7.6'
   pod 'Crashlytics', '~> 3.10.1'
-  pod 'RNVectorIcons', :path => '../node_modules/react-native-vector-icons'
 
 end

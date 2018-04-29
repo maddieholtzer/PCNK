@@ -22,6 +22,11 @@ export const tabs = [{
   icon: require('./assets/nav_icons/map_red_half_size.png'),
   title: 'Map',
 }, {
+  label: 'Camera',
+  screen: 'pcnk.Camera',
+  icon: require('./assets/nav_icons/plus_red_half_size.png'),
+  title: 'Camera',
+}, {
   label: 'Help',
   screen: 'pcnk.Help',
   icon: require('./assets/nav_icons/help_red_half_size.png'),
@@ -43,7 +48,7 @@ export class App extends React.Component {
 
   onStoreUpdate() {
       let {root} = store.getState().root;
-      
+
       console.log("Im onStoreUpdate. Look!!!")
 
       // handle a root change
@@ -57,7 +62,7 @@ export class App extends React.Component {
   startApp(root) {
     console.log("auth user heyyyyyyyyyyyyyyyyyyyyyyyyyy");
     console.log(store.getState().auth.currentUser);
-  
+
     switch(root) {
       case 'after-login': {
         console.log("I'm after-login under App");
@@ -105,7 +110,7 @@ export class App extends React.Component {
         });
         break;
       }
-      
+
       case 'splash': {
         console.log("I'm splash under App");
         Navigation.startSingleScreenApp({
