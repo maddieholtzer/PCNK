@@ -4,7 +4,7 @@ import CustomButton from './button';
 
 const CheckPhotoQuality = (props) => {
     const { textStyle, containerStyle, imageStyle, imageContainer, textContainer,
-      otherContainer } = styles;
+      otherContainer, buttonStyle, iconStyle } = styles;
     console.log("hi");
     console.log(props.img);
   return (
@@ -14,10 +14,14 @@ const CheckPhotoQuality = (props) => {
         </View>
           <Text style={textStyle}>Happy with your shot?</Text>
           <View style={otherContainer}>
-            <CustomButton imgSource={require('../../assets/thumbs/thumb-down.png')} >
+            <CustomButton style={buttonStyle}
+                          imgSource={require('../../assets/X-mark.png')}
+                          textStyle={{fontSize: 20, alignSelf: 'center', marginTop: 10}}>
               No
             </CustomButton >
-            <CustomButton imgSource={require('../../assets/thumbs/thumb-up.png')} >
+            <CustomButton style={buttonStyle}
+                          imgSource={require('../../assets/check.png')}
+                          textStyle={{fontSize: 20, alignSelf: 'center', marginTop: 10}}>
               Yes
             </CustomButton >
           </View>
@@ -31,7 +35,7 @@ const styles = {
     fontWeight: '600',
     color: '#333',
     marginTop: 20,
-    flex: 1,
+    flex: .5,
     alignSelf: 'center',
 
   },
@@ -43,7 +47,7 @@ const styles = {
   },
 
   imageContainer: {
-    flex: 3,
+    flex: 4,
     marginTop: 0,
   },
 
@@ -57,8 +61,22 @@ const styles = {
   },
 
   otherContainer: {
-    flex: 2,
+    flex: 1.5,
     flexDirection: 'row',
+    width: Dimensions.get('window').width,
+    justifyContent: 'space-around',
+  },
+
+  buttonStyle: {
+    flex: 3,
+    width: Dimensions.get('window').width/2,
+    resizeMode: 'cover',
+
+  },
+
+  iconStyle: {
+    height: 64,
+    width: 64,
   },
 };
 

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Text, TouchableOpacity, Image } from 'react-native';
 
-const CustomButton = ({ onPress, children, imgSource, buttonStyle, textStyle }) => {
+const CustomButton = ({ onPress, children, imgSource, buttonStyle, textStyle}) => {
   const { iconStyle } = styles;
 
   return (
