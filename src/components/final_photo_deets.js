@@ -12,7 +12,7 @@ class FinalPhotoDeets extends React.Component{
       value: 0,
       img: props.img,
       sliderval: "ASAP",
-      category: ""
+      category: "Please select one"
     }
     this.setSliderval = this.setSliderval.bind(this);
   }
@@ -28,7 +28,7 @@ class FinalPhotoDeets extends React.Component{
     } else if (val===3){
       sliderval2 = 'This Week';
     } else if (val===4){
-      sliderval2 = 'In it for the long haul';
+      sliderval2 = 'Anytime';
     }
     this.setState({sliderval: sliderval2});
   }
@@ -47,7 +47,7 @@ class FinalPhotoDeets extends React.Component{
       />
       </View>
 
-      <Text style={textStyle}>How long is it good for?</Text>
+      <Text style={textStyle}>Pick up by: {this.state.sliderval}</Text>
       <Slider
       step={1}
       maximumValue={4}
@@ -58,10 +58,9 @@ class FinalPhotoDeets extends React.Component{
       }}
       value={this.state.value}
       />
-      <Text> {this.state.sliderval} </Text>
 
       <Text style={textStyle}>Category: {this.state.category}</Text>
-      <View style={{flex: 1, flexDirection: 'row'}}>
+      <View style={{flex: .5, flexDirection: 'row', justifyContent: 'space-around'}}>
       <CustomButton style={buttonStyle}
       imgSource={require('../../assets/emojis/red-apple_emoji.png')}
       textStyle={{fontSize: 9, alignSelf: 'center', marginTop: 0}}
@@ -120,7 +119,7 @@ class FinalPhotoDeets extends React.Component{
       onPress={() => {
         Navigation.dismissAllModals();
       }}>
-      No
+      Nah
       </CustomButton >
       <CustomButton style={buttonStyle}
       imgSource={require('../../assets/check.png')}
@@ -129,7 +128,7 @@ class FinalPhotoDeets extends React.Component{
         Navigation.dismissAllModals();
       }}
       >
-      Yes
+      Post
       </CustomButton >
       </View>
       </View>
@@ -184,7 +183,7 @@ const styles = {
   },
 
   buttonStyle: {
-    flex: 3,
+    flex: 2,
     width: Dimensions.get('window').width/2,
     resizeMode: 'cover',
 
