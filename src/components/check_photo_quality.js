@@ -1,6 +1,7 @@
 import React from 'react';
 import { View, Text, Image, Dimensions } from 'react-native';
 import CustomButton from './icon_button';
+import {Navigation} from 'react-native-navigation';
 
 const CheckPhotoQuality = (props) => {
     const { textStyle, containerStyle, imageStyle, imageContainer, textContainer,
@@ -16,12 +17,19 @@ const CheckPhotoQuality = (props) => {
           <View style={otherContainer}>
             <CustomButton style={buttonStyle}
                           imgSource={require('../../assets/X-mark.png')}
-                          textStyle={{fontSize: 20, alignSelf: 'center', marginTop: 10}}>
+                          textStyle={{fontSize: 20, alignSelf: 'center', marginTop: 10}}
+                          onPress={() => {
+                            Navigation.dismissModal();
+                          }}>
               No
             </CustomButton >
             <CustomButton style={buttonStyle}
                           imgSource={require('../../assets/check.png')}
-                          textStyle={{fontSize: 20, alignSelf: 'center', marginTop: 10}}>
+                          textStyle={{fontSize: 20, alignSelf: 'center', marginTop: 10}}
+                          onPress={() => {
+                            Navigation.dismissModal();
+                          }}
+                          >
               Yes
             </CustomButton >
           </View>
