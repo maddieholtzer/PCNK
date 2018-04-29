@@ -5,7 +5,10 @@ import { store } from '../../../App';
 export default class UserProfile extends React.Component {
   render() {
     const { viewStyle } = styles;
-    console.log(store.getState());
+    const bio = store.getState().profile.bio;
+    const imgUrl = bio.picture.data.url;
+    console.log(store.getState().auth.currentUser);
+
     return (
       <View style={viewStyle}>
         
