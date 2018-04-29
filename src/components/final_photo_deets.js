@@ -10,9 +10,26 @@ class FinalPhotoDeets extends React.Component{
     this.state = {
       text: "",
       value: 0,
-      img: props.img
+      img: props.img,
+      sliderval: "ASAP"
     }
+    this.setSliderval = this.setSliderval.bind(this);
+  }
 
+  setSliderval(val){
+    let sliderval2 = '';
+    if (val===0){
+      sliderval2 = 'ASAP';
+    } else if (val===1){
+      sliderval2 = 'Today';
+    } else if (val===2){
+      sliderval2 = 'Tomorrow';
+    } else if (val===3){
+      sliderval2 = 'This Week';
+    } else if (val===4){
+      sliderval2 = 'In it for the long haul';
+    }
+    this.setState({sliderval: sliderval2});
   }
 
   render() {
@@ -31,11 +48,15 @@ class FinalPhotoDeets extends React.Component{
       <Text style={textStyle}>How long is it good for?</Text>
       <Slider
       step={1}
-      maximumValue={5}
+      maximumValue={4}
       style={{ width: Dimensions.get('window').width/1.2, position: 'relative', marginTop: 0 }}
-      onValueChange={val => this.setState({ value: val })}
+      onValueChange={val => {
+        this.setSliderval(val);
+        this.setState({ value: val });
+      }}
       value={this.state.value}
       />
+      <Text> {this.state.sliderval} </Text>
       <View style={otherContainer}>
       <CustomButton style={buttonStyle}
       imgSource={require('../../assets/X-mark.png')}
