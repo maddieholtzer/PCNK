@@ -57,7 +57,7 @@ export class App extends React.Component {
   startApp(root) {
     console.log("auth user heyyyyyyyyyyyyyyyyyyyyyyyyyy");
     console.log(store.getState().auth.currentUser);
-  
+
     switch(root) {
       case 'after-login': {
         console.log("I'm after-login under App");
