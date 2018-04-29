@@ -40,8 +40,8 @@ class FinalPhotoDeets extends React.Component{
       <View style={containerStyle}>
       <View style={imageContainer}>
       <Image source={{uri: this.state.img}} style={imageStyle}/>
-      <TextInput placeholder='Where did you put it/Very brief description' multiline='true'
-      style={{flex: 1.5, height: 80, borderColor: 'yellow', borderWidth: 1, backgroundColor: '#F0F0F0', width: 150, marginTop: 30, borderRadius: 3, marginRight: 20}}
+      <TextInput placeholder='  Where did you put it/Very brief description' multiline='true'
+      style={{flex: 1.5, height: 85, borderColor: 'yellow', borderWidth: 1, backgroundColor: '#F0F0F0', width: 150, marginTop: 45, borderRadius: 3, marginRight: 20}}
       onChangeText={() => {txt => this.setState({text: txt})}}
       value={this.state.text}
       />
