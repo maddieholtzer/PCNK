@@ -1,6 +1,5 @@
 import React from 'react';
-import { View, Image, Text } from 'react-native';
-import Spinner from 'react-native-spinkit';
+import { View, Image, Text, ActivityIndicator } from 'react-native';
 
 export default class Splash extends React.Component {
   render() {
@@ -40,12 +39,7 @@ export default class Splash extends React.Component {
             paddingBottom: 30
           }}
         >
-          <Spinner 
-            isVisible={true} 
-            size={100} 
-            type={"Circle"} 
-            color={"#FFFFFF"}
-          />
+          <ActivityIndicator size="large" color="#ffffff" />          
         </View>
       </View>
     );
