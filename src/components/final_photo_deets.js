@@ -9,7 +9,7 @@ class FinalPhotoDeets extends React.Component{
     super(props);
     this.state = {
       text: "",
-      value: 50,
+      value: 0,
       img: props.img
     }
 
@@ -22,17 +22,19 @@ class FinalPhotoDeets extends React.Component{
       <View style={containerStyle}>
       <View style={imageContainer}>
       <Image source={{uri: this.state.img}} style={imageStyle}/>
-      <TextInput placeholder='super brief comment on food' multiline='true'
+      <TextInput placeholder='Where did you put it/Very brief description' multiline='true'
       style={{flex: 1.5, height: 80, borderColor: 'yellow', borderWidth: 1, backgroundColor: '#F0F0F0', width: 150, marginTop: 30, borderRadius: 3, marginRight: 20}}
-      onChangeText={() => {this.setState({text: ""})}}
+      onChangeText={() => {txt => this.setState({text: txt})}}
       value={this.state.text}
       />
       </View>
       <Text style={textStyle}>How long is it good for?</Text>
       <Slider
       step={1}
-      maximumValue={100}
-      style={{ width: 300 }}
+      maximumValue={5}
+      style={{ width: Dimensions.get('window').width/1.2, position: 'relative', marginTop: 0 }}
+      onValueChange={val => this.setState({ value: val })}
+      value={this.state.value}
       />
       <View style={otherContainer}>
       <CustomButton style={buttonStyle}
@@ -66,14 +68,14 @@ const styles = {
     fontWeight: '600',
     color: '#333',
     marginTop: 20,
-    flex: .5,
+    flex: .2,
     alignSelf: 'center',
 
   },
   containerStyle: {
     alignItems: 'center',
     flexDirection: 'column',
-    flex: 1,
+    flex: 1.3,
     marginTop: 0,
   },
 
