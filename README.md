@@ -20,6 +20,9 @@ https://github.com/invertase/react-native-firebase-starter
 #### React-Native-Navigation: routing & navigation solution
 https://github.com/wix/react-native-navigation
 
+styling:
+https://github.com/wix/react-native-navigation/blob/master/docs/styling-the-navigator.md
+
 #### Firebase integration for React Native
 https://rnfirebase.io/docs/v4.0.x/auth/getting-started
 

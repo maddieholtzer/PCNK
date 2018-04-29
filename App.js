@@ -11,28 +11,6 @@ export const store = configureStore();
 registerScreens(store, Provider);
 registerScreenVisibilityListener();
 
-export const tabs = [{
-  label: 'Pantry',
-  screen: 'pcnk.Pantry',
-  icon: require('./assets/nav_icons/pcnk_icon_only_red_half_size.png'),
-  title: 'Pantry',
-}, {
-  label: 'Map',
-  screen: 'pcnk.Map',
-  icon: require('./assets/nav_icons/map_red_half_size.png'),
-  title: 'Map',
-}, {
-  label: 'Help',
-  screen: 'pcnk.Help',
-  icon: require('./assets/nav_icons/help_red_half_size.png'),
-  title: 'Help',
-}, {
-  label: 'Profile',
-  screen: 'pcnk.UserProfile',
-  icon: require('./assets/nav_icons/user_red_half_size.png'),
-  title: 'Profile',
-}];
-
 export class App extends React.Component {
   constructor(props) {
     super(props);
@@ -52,28 +30,49 @@ export class App extends React.Component {
   startApp(root) {
     switch(root) {
       case 'after-login': {
+        const tabs = [{
+          label: 'Pantry',
+          screen: 'pcnk.Pantry',
+          icon: require('./assets/nav_icons/pcnk_icon_only_red_half_size.png'),
+          title: 'Pantry',
+        }, {
+          label: 'Map',
+          screen: 'pcnk.Map',
+          icon: require('./assets/nav_icons/map_red_half_size.png'),
+          title: 'Map',
+        }, {
+          label: 'Help',
+          screen: 'pcnk.Help',
+          icon: require('./assets/nav_icons/help_red_half_size.png'),
+          title: 'Help',
+        }, {
+          label: 'Profile',
+          screen: 'pcnk.UserProfile',
+          icon: require('./assets/nav_icons/user_red_half_size.png'),
+          title: `${store.getState().auth.currentUser.additionalUserInfo.profile.first_name} ${store.getState().auth.currentUser.additionalUserInfo.profile.last_name}`,
+        }];
         Navigation.startTabBasedApp({
           tabs,
           animationType: Platform.OS === 'ios' ? 'slide-down' : 'fade',
           tabsStyle: {
             tabBarBackgroundColor: '#F8F8F8',
-            tabBarButtonColor: '#19191B',
-            tabBarTextColor: '#19191B',
+            tabBarButtonColor: '#323031',
+            tabBarTextColor: '#323031',
             tabBarSelectedButtonColor: '#ED4009',
             tabFontFamily: 'BioRhyme-Bold',
           },
           appStyle: {
             tabBarBackgroundColor: '#F8F8F8',
             navBarButtonColor: '#ffffff',
-            tabBarButtonColor: '#19191B',
-            navBarTextColor: '#19191B',
+            tabBarButtonColor: '#323031',
+            navBarTextColor: '#323031',
             tabBarSelectedButtonColor: '#ED4009',
             navigationBarColor: '#F8F8F8',
             navBarBackgroundColor: '#F8F8F8',
             statusBarColor: '#ED4009',
             tabFontFamily: 'BioRhyme-Bold',
             topBarElevationShadowEnabled: true, 
-            topBarShadowColor: '#19191B',
+            topBarShadowColor: '#323031',
             topBarShadowOpacity: 0.2,
             topBarShadowOffset: 2,
           },
