@@ -34,8 +34,10 @@ Big thanks to these awesome developers. We would have gone through more struggle
 reference to code from James Priebe's and June Domingo's projects:
 https://github.com/J-Priebe/react-native-facebook-firebase
 https://github.com/JuneDomingo/movieapp/tree/feature/similar-movies
-#### Add App Icons and Launch Screens to React Native Apps:
+##### Add App Icons and Launch Screens to React Native Apps:
 https://medium.com/@scottianstewart/react-native-add-app-icons-and-launch-screens-onto-ios-and-android-apps-3bfbc20b7d4c
 ##### Switch between single screen for login and tab based app:
 simonedavico's answer: https://github.com/wix/react-native-navigation/issues/2310
 Alvin Chau's tutorial: https://github.com/keri4141/React-Native-Navigation-Redux-Example
+##### Splash page go to login after 5 seconds of loading
+https://stackoverflow.com/questions/44937498/react-native-change-screen-after-x-seconds

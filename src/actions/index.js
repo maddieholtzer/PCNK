@@ -1,5 +1,6 @@
 import * as types from './actiontypes';
 import { userLoggedIn } from './auth';
+import { startLoading, endLoading } from './loading';
 import { updateBio } from './profile';
 import { AccessToken, LoginManager } from 'react-native-fbsdk';
 import firebase from 'react-native-firebase';
@@ -23,16 +24,17 @@ export function appInitialized() {
   return async function(dispatch, getState) {
     // since all business logic should be inside redux actions
     // this is a good place to put your app initialization code
-    dispatch(changeAppRoot('login'));
+    dispatch(changeAppRoot('splash'));
   };
 }
 
 export function login() {
     return async function(dispatch, getState) {
+      dispatch(endLoading());
       dispatch(changeAppRoot('splash'));
       try {
         const result = await LoginManager.logInWithReadPermissions(['public_profile', 'email']);
-
+        dispatch(startLoading());
         if (result.isCancelled) {
           // <App />;
           dispatch(changeAppRoot('login'));

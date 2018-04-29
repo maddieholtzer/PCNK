@@ -42,15 +42,17 @@ export class App extends React.Component {
   }
 
   onStoreUpdate() {
-      let {root} = store.getState().root;
+      let {root, loading} = store.getState().root;
       
       console.log("Im onStoreUpdate. Look!!!")
 
-      // handle a root change
-      // if your app doesn't change roots in runtime, you can remove onStoreUpdate() altogether
-      if (this.currentRoot != root) {
+      if (loading) {
+        this.currentRoot = 'splash';
+        this.startApp('splash');
+      }
+      else if (this.currentRoot != root) {
         this.currentRoot = root;
-        this.startApp(root);
+        this.startApp(root);      
       }
     }
 
