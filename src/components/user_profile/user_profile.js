@@ -1,10 +1,21 @@
 import React from 'react';
 import { View } from 'react-native';
+import LogoutButton from '../session/logout_button';
 
-const UserProfile = () => (
-    <View>
-      
-    </View>
-);
+export default class UserProfile extends React.Component {
+  render() {
+    const { viewStyle } = styles;
+    return (
+      <View style={viewStyle}>
+        <LogoutButton />
+      </View>
+    );
+  }
+}
 
-export default UserProfile;
+const styles = {
+  viewStyle: {
+    backgroundColor: "#F8f8f9",
+    flex: 1,
+  },
+}

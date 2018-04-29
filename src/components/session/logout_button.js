@@ -5,17 +5,17 @@ import * as  appActions from '../../actions/index';
 import { connect } from 'react-redux';
 import { store } from '../../../App';
 
-export class Logout extends React.Component {
+export class LogoutButton extends React.Component {
 
   render() {
-    const { layoutStyle, imageStyle, halfLayoutStyle, redButtonStyle,
-    blueButtonStyle, redBorderStyle, whiteTextStyle, redTextStyle,
-    blueButtonWhiteTextStyle, altButtonStyle } = styles;
+    const { layoutStyle, grayButtonStyle, textStyle } = styles;
+    const pcnkIcon = require('../../../assets/orange_icon.png');
     return (
       <View style={layoutStyle}>
         <AltButton
-          buttonStyle={blueButtonStyle}
-          textStyle={blueButtonWhiteTextStyle}
+          buttonStyle={grayButtonStyle}
+          textStyle={textStyle}
+          imgSource={pcnkIcon}
           onPress={ () => this.onLogoutPress() }>
           Sign Out
         </AltButton>
@@ -33,85 +33,28 @@ export class Logout extends React.Component {
 }
 
 const styles = {
-  redButtonStyle: {
-    height: 60,
-    borderRadius: 5,
-    borderWidth: 1,
-    marginLeft: 5,
-    marginRight: 5,
-    marginTop: 10,
-    marginBottom: 20,
-    backgroundColor: "#ed4008",
-    borderColor: "#ed4008",
-    alignItems: 'center',
-    flexDirection: 'row',
-  },
-
-  whiteTextStyle: {
-    alignSelf: 'center',
-    marginLeft: 45,
-    color: '#fff',
-    fontSize: 18,
-    fontWeight: '600',
-  },
-
-  blueButtonWhiteTextStyle: {
+  textStyle: {
     justifyContent: 'center',
-    fontSize: 18,
-    color: '#fff',
+    fontSize: 16,
+    color: '#000000',
     paddingTop: 15,
-
   },
 
-  redTextStyle: {
-    justifyContent: 'center',
-    color: '#ed4008',
-    fontSize: 18,
-    fontWeight: '600',
-    paddingTop: 15,
-    paddingLeft: 60,
-  },
-
-  blueButtonStyle: {
+  grayButtonStyle: {
     height: 60,
-    borderRadius: 5,
-    borderWidth: 1,
-    marginLeft: 5,
-    marginRight: 5,
     marginTop: 10,
-    backgroundColor: "#425FB4",
-    borderColor: '#425FB4',
+    backgroundColor: "#ffffff",
+    borderBottomWidth: 0.5,
+    borderTopWidth: 0.5,
+    borderColor: '#A3A1A2',
     marginBottom: 50,
     paddingRight: 15,
-
-  },
-
-  redBorderStyle: {
-    height: 60,
-    borderRadius: 5,
-    borderWidth: 2,
-    marginLeft: 5,
-    marginRight: 5,
-    borderColor: "#ed4008"
   },
 
   layoutStyle: {
     justifyContent: 'space-between',
     marginTop: 20,
   },
-
-  imageStyle: {
-    height: 250,
-    width: 250,
-    alignSelf: 'center',
-    resizeMode: 'contain',
-    marginTop: 10,
-    marginBottom: 20,
-  },
-
-  halfLayoutStyle: {
-    justifyContent: 'space-between',
-  },
 };
 
-export default connect()(Logout);
+export default connect()(LogoutButton);

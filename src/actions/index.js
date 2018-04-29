@@ -68,7 +68,7 @@ export function logout() {
     return async function(dispatch, getState) {
       try {
         dispatch(userLoggedOut());
-        dispatch(changeAppRoot('login'));
+        dispatch(changeAppRoot('splash'));
       } catch (e) {
         console.error(e);
       }
