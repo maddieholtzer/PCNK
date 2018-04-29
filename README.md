@@ -14,7 +14,10 @@ Users can:
 ## Docs
 We browsed through the following documentations for React Native, Firebase and Facebook OAuth:
 
-#### React Native Starter Kit: boilerplate code && environment setup
+#### React Native
+https://facebook.github.io/react-native/docs/getting-started.html
+
+#### React Native Firebase Starter Kit: boilerplate code && environment setup
 https://github.com/invertase/react-native-firebase-starter
 
 #### React-Native-Navigation: routing & navigation solution
@@ -22,6 +25,12 @@ https://github.com/wix/react-native-navigation
 
 styling:
 https://github.com/wix/react-native-navigation/blob/master/docs/styling-the-navigator.md
+
+#### React-Native-Elements
+https://react-native-training.github.io/react-native-elements/docs/overview.html
+
+#### React-Native-Camera
+https://github.com/react-native-community/react-native-camera
 
 #### Firebase integration for React Native
 https://rnfirebase.io/docs/v4.0.x/auth/getting-started
@@ -52,5 +61,4 @@ simonedavico's answer: https://github.com/wix/react-native-navigation/issues/231
 Alvin Chau's tutorial: https://github.com/keri4141/React-Native-Navigation-Redux-Example
 
 #### Change Splash page to login after X seconds of loading
-
 https://stackoverflow.com/questions/44937498/react-native-change-screen-after-x-seconds
