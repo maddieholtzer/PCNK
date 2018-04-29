@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, Image, Text } from 'react-native';
-import { Circle } from 'react-native-spinkit';
+import Spinner from 'react-native-spinkit';
 
 export default class Splash extends React.Component {
   render() {
@@ -37,18 +37,15 @@ export default class Splash extends React.Component {
             flex: 1,
             backgroundColor: 'transparent',
             justifyContent: 'flex-end',
+            paddingBottom: 30
           }}
         >
-          <Text
-            style={{
-              textAlign: 'center',
-              color: 'white',
-              fontSize: 40,
-              paddingBottom: 30,
-            }}
-          >
-            {text}
-          </Text>
+          <Spinner 
+            isVisible={true} 
+            size={100} 
+            type={"Circle"} 
+            color={"#FFFFFF"}
+          />
         </View>
       </View>
     );
