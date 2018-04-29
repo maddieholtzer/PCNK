@@ -1,19 +1,21 @@
 import React from 'react';
-import { View, Text, Image } from 'react-native';
+import { View, Text, Image, Dimensions, Button } from 'react-native';
 
 const CheckPhotoQuality = (props) => {
-    const { textStyle, containerStyle, imageStyle } = styles;
+    const { textStyle, containerStyle, imageStyle, imageContainer, textContainer,
+      otherContainer } = styles;
     console.log("hi");
     console.log(props.img);
   return (
     <View style={containerStyle}>
-      <View>
-      <Text style={textStyle}>Looks Good?</Text>
-      <Image source={{uri: props.img}} style={imageStyle}/>
-      </View>
-      <View>
-
-      </View>
+        <View style={imageContainer}>
+          <Image source={{uri: props.img}} style={imageStyle}/>
+        </View>
+          <Text style={textStyle}>Looks Good?</Text>
+          <View style={otherContainer}>
+            <Button title="No" />
+            <Button title="Yes" />
+          </View>
     </View>
   );
 };
@@ -24,16 +26,34 @@ const styles = {
     fontWeight: '600',
     color: '#333',
     marginTop: 20,
-    
+    flex: 1,
+    alignSelf: 'center',
+
   },
   containerStyle: {
-    justifyContent: 'center',
+    alignItems: 'center',
+    flexDirection: 'column',
+    flex: 1,
+    marginTop: 0,
+  },
+
+  imageContainer: {
+    flex: 3,
+    marginTop: 0,
   },
 
   imageStyle: {
-    height: 200,
-    width: 200,
-    resizeMode: 'contain',
+    // alignSelf: 'stretch',
+    flex: 1,
+    // height: 300,
+    width: Dimensions.get('window').width,
+    marginTop: 0,
+    resizeMode: 'cover'
+  },
+
+  otherContainer: {
+    flex: 1,
+    flexDirection: 'row',
   },
 };
 
