@@ -60,37 +60,55 @@ class FinalPhotoDeets extends React.Component{
       />
       <Text> {this.state.sliderval} </Text>
 
-      <Text style={textStyle}>Category</Text>
+      <Text style={textStyle}>Category: {this.state.category}</Text>
       <View style={{flex: 1, flexDirection: 'row'}}>
       <CustomButton style={buttonStyle}
       imgSource={require('../../assets/emojis/red-apple_emoji.png')}
-      textStyle={{fontSize: 14, alignSelf: 'center', marginTop: 0}}>
+      textStyle={{fontSize: 9, alignSelf: 'center', marginTop: 0}}
+      onPress={() => {
+        this.setState({category: 'fruit'});
+      }}>
       Fruit
       </CustomButton >
       <CustomButton style={buttonStyle}
       imgSource={require('../../assets/emojis/carrot_emoji.png')}
-      textStyle={{fontSize: 14, alignSelf: 'center', marginTop: 0}}>
-      Fruit
+      textStyle={{fontSize: 9, alignSelf: 'center', marginTop: 0}}
+      onPress={() => {
+        this.setState({category: 'veggies'});
+      }}>
+      Veggies
       </CustomButton >
       <CustomButton style={buttonStyle}
       imgSource={require('../../assets/emojis/fork-and-knife-with-plate_emoji.png')}
-      textStyle={{fontSize: 14, alignSelf: 'center', marginTop: 0}}>
-      Fruit
+      textStyle={{fontSize: 9, alignSelf: 'center', marginTop: 0}}
+      onPress={() => {
+        this.setState({category: 'meal'});
+      }}>
+      Meal
       </CustomButton >
       <CustomButton style={buttonStyle}
       imgSource={require('../../assets/emojis/pretzel_emoji.png')}
-      textStyle={{fontSize: 14, alignSelf: 'center', marginTop: 0}}>
-      Fruit
+      textStyle={{fontSize: 9, alignSelf: 'center', marginTop: 0}}
+      onPress={() => {
+        this.setState({category: 'snack'});
+      }}>
+      Snack
       </CustomButton >
       <CustomButton style={buttonStyle}
       imgSource={require('../../assets/emojis/croissant_emoji.png')}
-      textStyle={{fontSize: 14, alignSelf: 'center', marginTop: 0}}>
-      Fruit
+      textStyle={{fontSize: 9, alignSelf: 'center', marginTop: 0}}
+      onPress={() => {
+        this.setState({category: 'baked good'});
+      }}>
+      Baked Good
       </CustomButton >
       <CustomButton style={buttonStyle}
       imgSource={require('../../assets/emojis/soft-ice-cream_emoji.png')}
-      textStyle={{fontSize: 14, alignSelf: 'center', marginTop: 0}}>
-      Fruit
+      textStyle={{fontSize: 9, alignSelf: 'center', marginTop: 0}}
+      onPress={() => {
+        this.setState({category: 'dessert'});
+      }}>
+      Dessert
       </CustomButton >
       </View>
 
