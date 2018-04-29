@@ -5,7 +5,7 @@ export default class Splash extends React.Component {
   render() {
     const resizeMode = 'center';
     const remote = 'https://res.cloudinary.com/devleg/image/upload/v1524984324/white_logo_color_background.jpg';
-
+    
     return (
       <View
         style={{

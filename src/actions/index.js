@@ -23,17 +23,19 @@ export function appInitialized() {
   return async function(dispatch, getState) {
     // since all business logic should be inside redux actions
     // this is a good place to put your app initialization code
-    dispatch(changeAppRoot('splash'));
+    dispatch(changeAppRoot('login'));
   };
 }
 
 export function login() {
     return async function(dispatch, getState) {
+      dispatch(changeAppRoot('splash'));
       try {
         const result = await LoginManager.logInWithReadPermissions(['public_profile', 'email']);
 
         if (result.isCancelled) {
           // <App />;
+          dispatch(changeAppRoot('login'));
           return;
           // throw new Error('User cancelled request'); // Handle this however fits the flow of your app
         }
