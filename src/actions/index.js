@@ -33,7 +33,6 @@ export function login() {
       dispatch(startLoading());
       try {
         const result = await LoginManager.logInWithReadPermissions(['public_profile', 'email']);
-
         if (result.isCancelled) {
           // <App />;
           dispatch(endLoading());
@@ -61,5 +60,6 @@ export function login() {
       } catch (e) {
         console.error(e);
       }
+      dispatch(endLoading());
     };
   }
