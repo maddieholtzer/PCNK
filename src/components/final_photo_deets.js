@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, Text, Image, Dimensions, Slider, TextInput } from 'react-native';
-import CustomButton from './icon_button';
+import CustomButton from './emoji_button';
 import {Navigation} from 'react-native-navigation';
 
 class FinalPhotoDeets extends React.Component{
@@ -11,7 +11,8 @@ class FinalPhotoDeets extends React.Component{
       text: "",
       value: 0,
       img: props.img,
-      sliderval: "ASAP"
+      sliderval: "ASAP",
+      category: ""
     }
     this.setSliderval = this.setSliderval.bind(this);
   }
@@ -45,6 +46,7 @@ class FinalPhotoDeets extends React.Component{
       value={this.state.text}
       />
       </View>
+
       <Text style={textStyle}>How long is it good for?</Text>
       <Slider
       step={1}
@@ -57,6 +59,42 @@ class FinalPhotoDeets extends React.Component{
       value={this.state.value}
       />
       <Text> {this.state.sliderval} </Text>
+
+      <Text style={textStyle}>Category</Text>
+      <View style={{flex: 1, flexDirection: 'row'}}>
+      <CustomButton style={buttonStyle}
+      imgSource={require('../../assets/emojis/red-apple_emoji.png')}
+      textStyle={{fontSize: 14, alignSelf: 'center', marginTop: 0}}>
+      Fruit
+      </CustomButton >
+      <CustomButton style={buttonStyle}
+      imgSource={require('../../assets/emojis/carrot_emoji.png')}
+      textStyle={{fontSize: 14, alignSelf: 'center', marginTop: 0}}>
+      Fruit
+      </CustomButton >
+      <CustomButton style={buttonStyle}
+      imgSource={require('../../assets/emojis/fork-and-knife-with-plate_emoji.png')}
+      textStyle={{fontSize: 14, alignSelf: 'center', marginTop: 0}}>
+      Fruit
+      </CustomButton >
+      <CustomButton style={buttonStyle}
+      imgSource={require('../../assets/emojis/pretzel_emoji.png')}
+      textStyle={{fontSize: 14, alignSelf: 'center', marginTop: 0}}>
+      Fruit
+      </CustomButton >
+      <CustomButton style={buttonStyle}
+      imgSource={require('../../assets/emojis/croissant_emoji.png')}
+      textStyle={{fontSize: 14, alignSelf: 'center', marginTop: 0}}>
+      Fruit
+      </CustomButton >
+      <CustomButton style={buttonStyle}
+      imgSource={require('../../assets/emojis/soft-ice-cream_emoji.png')}
+      textStyle={{fontSize: 14, alignSelf: 'center', marginTop: 0}}>
+      Fruit
+      </CustomButton >
+      </View>
+
+
       <View style={otherContainer}>
       <CustomButton style={buttonStyle}
       imgSource={require('../../assets/X-mark.png')}
@@ -121,7 +159,7 @@ const styles = {
   },
 
   otherContainer: {
-    flex: 1.5,
+    flex: .5,
     flexDirection: 'row',
     width: Dimensions.get('window').width,
     justifyContent: 'space-around',
