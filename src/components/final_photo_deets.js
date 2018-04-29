@@ -3,45 +3,62 @@ import { View, Text, Image, Dimensions, Slider, TextInput } from 'react-native';
 import CustomButton from './icon_button';
 import {Navigation} from 'react-native-navigation';
 
-const FinalPhotoDeets = (props) => {
-  const { textStyle, containerStyle, imageStyle, imageContainer, textContainer,
-    otherContainer, buttonStyle, iconStyle } = styles;
-  return (
-    <View style={containerStyle}>
-        <View style={imageContainer}>
-          <Image source={{uri: props.img}} style={imageStyle}/>
-          <TextInput placeholder='super brief comment on food' multiline='true'
-          style={{flex: 1.5, height: 80, borderColor: 'yellow', borderWidth: 1, backgroundColor: '#F0F0F0', width: 150, marginTop: 30, borderRadius: 3, marginRight: 20}}
-          />
-        </View>
-        <Text style={textStyle}>How long is it good for?</Text>
-        <Slider
-          step={1}
-          maximumValue={100}
-          value={5}
-        />
-          <View style={otherContainer}>
-            <CustomButton style={buttonStyle}
-                          imgSource={require('../../assets/X-mark.png')}
-                          textStyle={{fontSize: 20, alignSelf: 'center', marginTop: 10}}
-                          onPress={() => {
-                            Navigation.dismissAllModals();
-                          }}>
-              No
-            </CustomButton >
-            <CustomButton style={buttonStyle}
-                          imgSource={require('../../assets/check.png')}
-                          textStyle={{fontSize: 20, alignSelf: 'center', marginTop: 10}}
-                          onPress={() => {
-                            Navigation.dismissAllModals();
-                          }}
-                          >
-              Yes
-            </CustomButton >
-          </View>
-    </View>
-  );
-};
+class FinalPhotoDeets extends React.Component{
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      text: "",
+      value: 50,
+      img: props.img
+    }
+
+  }
+
+  render() {
+    const { textStyle, containerStyle, imageStyle, imageContainer, textContainer,
+      otherContainer, buttonStyle, iconStyle } = styles;
+    return (
+      <View style={containerStyle}>
+      <View style={imageContainer}>
+      <Image source={{uri: this.state.img}} style={imageStyle}/>
+      <TextInput placeholder='super brief comment on food' multiline='true'
+      style={{flex: 1.5, height: 80, borderColor: 'yellow', borderWidth: 1, backgroundColor: '#F0F0F0', width: 150, marginTop: 30, borderRadius: 3, marginRight: 20}}
+      onChangeText={() => {this.setState({text: ""})}}
+      value={this.state.text}
+      />
+      </View>
+      <Text style={textStyle}>How long is it good for?</Text>
+      <Slider
+      step={1}
+      maximumValue={100}
+      value={this.state.value}
+      />
+      <View style={otherContainer}>
+      <CustomButton style={buttonStyle}
+      imgSource={require('../../assets/X-mark.png')}
+      textStyle={{fontSize: 20, alignSelf: 'center', marginTop: 10}}
+      onPress={() => {
+        Navigation.dismissAllModals();
+      }}>
+      No
+      </CustomButton >
+      <CustomButton style={buttonStyle}
+      imgSource={require('../../assets/check.png')}
+      textStyle={{fontSize: 20, alignSelf: 'center', marginTop: 10}}
+      onPress={() => {
+        Navigation.dismissAllModals();
+      }}
+      >
+      Yes
+      </CustomButton >
+      </View>
+      </View>
+    );
+
+  }
+
+}
 
 const styles = {
   textStyle: {
