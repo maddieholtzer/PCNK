@@ -3,17 +3,14 @@ import { View, Text, Image, Dimensions } from 'react-native';
 import CustomButton from './icon_button';
 import {Navigation} from 'react-native-navigation';
 
-const CheckPhotoQuality = (props) => {
+const FinalPhotoDeets = (props) => {
     const { textStyle, containerStyle, imageStyle, imageContainer, textContainer,
       otherContainer, buttonStyle, iconStyle } = styles;
-    console.log("hi");
-    console.log(props.img);
   return (
     <View style={containerStyle}>
         <View style={imageContainer}>
           <Image source={{uri: props.img}} style={imageStyle}/>
         </View>
-          <Text style={textStyle}>Happy with your shot?</Text>
           <View style={otherContainer}>
             <CustomButton style={buttonStyle}
                           imgSource={require('../../assets/X-mark.png')}
@@ -28,8 +25,8 @@ const CheckPhotoQuality = (props) => {
                           textStyle={{fontSize: 20, alignSelf: 'center', marginTop: 10}}
                           onPress={() => {
                             Navigation.showModal({
-                              screen: 'pcnk.FinalPhotoDeets',
-                              title: 'Final Photo Deets',
+                              screen: 'pcnk.CheckPhotoQuality',
+                              title: 'Check Photo Quality',
                               passProps: {img: props.img},
                             });
                           }}
@@ -92,4 +89,4 @@ const styles = {
   },
 };
 
-export default CheckPhotoQuality;
+export default FinalPhotoDeets;
