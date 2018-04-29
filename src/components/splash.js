@@ -7,8 +7,6 @@ import {store} from '../../App';
 export class Splash extends React.Component {
   constructor(props){
     super(props);
-    console.log("props!!!!@@@@@@@@@@@@@@");
-    console.log(props);
     this.state = {
       component : <Loading />
     };

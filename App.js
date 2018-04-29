@@ -38,13 +38,10 @@ export class App extends React.Component {
     super(props);
     store.subscribe(this.onStoreUpdate.bind(this));
     store.dispatch(appActions.appInitialized());
-    console.log("Im under App constructor");
   }
 
   onStoreUpdate() {
       const {root} = store.getState().root;
-      
-      console.log("Im onStoreUpdate. Look!!!")
       
       if (this.currentRoot != root) {
         this.currentRoot = root;
@@ -53,12 +50,8 @@ export class App extends React.Component {
     }
 
   startApp(root) {
-    console.log("auth user heyyyyyyyyyyyyyyyyyyyyyyyyyy");
-    console.log(store.getState().auth.currentUser);
-
     switch(root) {
       case 'after-login': {
-        console.log("I'm after-login under App");
         Navigation.startTabBasedApp({
           tabs,
           animationType: Platform.OS === 'ios' ? 'slide-down' : 'fade',
@@ -91,7 +84,6 @@ export class App extends React.Component {
       }
 
       case 'login': {
-        console.log("I'm login under App");
         Navigation.startSingleScreenApp({
           screen: {
             screen: 'pcnk.SignInOptions',
@@ -105,7 +97,6 @@ export class App extends React.Component {
       }
       
       case 'splash': {
-        console.log("I'm splash under App");
         Navigation.startSingleScreenApp({
           screen: {
             screen: 'pcnk.Splash',
