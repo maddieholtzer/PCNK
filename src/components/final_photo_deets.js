@@ -32,7 +32,7 @@ class FinalPhotoDeets extends React.Component{
       <Slider
       step={1}
       maximumValue={100}
-      value={this.state.value}
+      style={{ width: 300 }}
       />
       <View style={otherContainer}>
       <CustomButton style={buttonStyle}
