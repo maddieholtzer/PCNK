@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, Text, Image, Dimensions } from 'react-native';
-import CustomButton from './button';
+import CustomButton from './icon_button';
 
 const CheckPhotoQuality = (props) => {
     const { textStyle, containerStyle, imageStyle, imageContainer, textContainer,
