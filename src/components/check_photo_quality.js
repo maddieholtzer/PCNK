@@ -1,5 +1,6 @@
 import React from 'react';
-import { View, Text, Image, Dimensions, Button } from 'react-native';
+import { View, Text, Image, Dimensions } from 'react-native';
+import CustomButton from './button';
 
 const CheckPhotoQuality = (props) => {
     const { textStyle, containerStyle, imageStyle, imageContainer, textContainer,
@@ -11,10 +12,14 @@ const CheckPhotoQuality = (props) => {
         <View style={imageContainer}>
           <Image source={{uri: props.img}} style={imageStyle}/>
         </View>
-          <Text style={textStyle}>Looks Good?</Text>
+          <Text style={textStyle}>Happy with your shot?</Text>
           <View style={otherContainer}>
-            <Button title="No" />
-            <Button title="Yes" />
+            <CustomButton imgSource={require('../../assets/thumbs/thumb-down.png')} >
+              No
+            </CustomButton >
+            <CustomButton imgSource={require('../../assets/thumbs/thumb-up.png')} >
+              Yes
+            </CustomButton >
           </View>
     </View>
   );
@@ -52,7 +57,7 @@ const styles = {
   },
 
   otherContainer: {
-    flex: 1,
+    flex: 2,
     flexDirection: 'row',
   },
 };
