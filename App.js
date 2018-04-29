@@ -49,7 +49,7 @@ export class App extends React.Component {
           label: 'Profile',
           screen: 'pcnk.UserProfile',
           icon: require('./assets/nav_icons/user_red_half_size.png'),
-          title: `${store.getState().auth.currentUser.additionalUserInfo.profile.first_name} ${store.getState().auth.currentUser.additionalUserInfo.profile.last_name}`,
+          title: `${store.getState().profile.first_name} ${store.getState().profile.last_name}`,
         }];
         Navigation.startTabBasedApp({
           tabs,

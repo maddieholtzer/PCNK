@@ -3,6 +3,7 @@ import { View } from 'react-native';
 import LogoutButton from '../session/logout_button';
 
 export default class Setting extends React.Component {
+  const backButtonImg = require('../../../assets/iOS_back_button.png');
   render() {
     const { viewStyle } = styles;
     return (

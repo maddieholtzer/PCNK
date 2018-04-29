@@ -1,9 +1,7 @@
 import {
-  UPDATE_PROFILE_SUCCESS
+  UPDATE_PROFILE_BIO
 } from '../actions/profile'
 
-
-// logged in user's profile
 const initialState = {
 	bio: null
 }
@@ -13,11 +11,10 @@ export default function reducer(state = initialState, action) {
 
   switch (action.type) {
 
-	  case UPDATE_PROFILE_SUCCESS:
+	  case UPDATE_PROFILE_BIO:
 
 	    return {
-	      ...state,
-	      bio: action.profileData.bio
+	      bio: action.bio
 	    }
 
 	  default:

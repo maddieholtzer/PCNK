@@ -55,8 +55,11 @@ export function login() {
         const currentUser = await firebase.auth().signInAndRetrieveDataWithCredential(credential);
         console.log(currentUser);
         console.info(JSON.stringify(currentUser.user.toJSON()));
-        dispatch(userLoggedIn(currentUser)); // add current user to state
-        dispatch(changeAppRoot('after-login'));
+        if (currentUser) {
+          dispatch(userLoggedIn(currentUser)); // add current user to state
+          dispatch(updateBio(currentUser.additionalUserInfo.profile));
+          dispatch(changeAppRoot('after-login'));
+        }
       } catch (e) {
         console.error(e);
       }

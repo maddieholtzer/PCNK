@@ -1,9 +1,11 @@
 import React from 'react';
 import { View, Text } from 'react-native';
+import { store } from '../../../App';
 
 export default class UserProfile extends React.Component {
   render() {
     const { viewStyle } = styles;
+    console.log(store.getState());
     return (
       <View style={viewStyle}>
         
