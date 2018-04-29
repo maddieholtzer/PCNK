@@ -30,14 +30,13 @@ export function appInitialized() {
 
 export function login() {
     return async function(dispatch, getState) {
-      dispatch(endLoading());
-      dispatch(changeAppRoot('splash'));
+      dispatch(startLoading());
       try {
         const result = await LoginManager.logInWithReadPermissions(['public_profile', 'email']);
-        dispatch(startLoading());
+
         if (result.isCancelled) {
           // <App />;
-          dispatch(changeAppRoot('login'));
+          dispatch(endLoading());
           return;
           // throw new Error('User cancelled request'); // Handle this however fits the flow of your app
         }

@@ -5,7 +5,7 @@ import {
 
 
 const initialState = {
-	loading: true
+	loading: false
 }
 
 

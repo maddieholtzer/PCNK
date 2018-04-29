@@ -42,15 +42,11 @@ export class App extends React.Component {
   }
 
   onStoreUpdate() {
-      let {root, loading} = store.getState().root;
+      const {root} = store.getState().root;
       
       console.log("Im onStoreUpdate. Look!!!")
-
-      if (loading) {
-        this.currentRoot = 'splash';
-        this.startApp('splash');
-      }
-      else if (this.currentRoot != root) {
+      
+      if (this.currentRoot != root) {
         this.currentRoot = root;
         this.startApp(root);      
       }
