@@ -1,11 +1,10 @@
 import React from 'react';
-import { View, Image, Text, ActivityIndicator } from 'react-native';
+import { View, Image, ActivityIndicator } from 'react-native';
 
 export default class Splash extends React.Component {
   render() {
     const resizeMode = 'center';
     const remote = 'https://res.cloudinary.com/devleg/image/upload/v1524984324/white_logo_color_background.jpg';
-    const text = 'Loading...';
 
     return (
       <View
@@ -36,7 +35,7 @@ export default class Splash extends React.Component {
             flex: 1,
             backgroundColor: 'transparent',
             justifyContent: 'flex-end',
-            paddingBottom: 30
+            paddingBottom: 50
           }}
         >
           <ActivityIndicator size="large" color="#ffffff" />          
