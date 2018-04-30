@@ -1,26 +1,51 @@
 import React from 'react';
-import { View, Image } from 'react-native';
+import Login from './session/sign_in_options';
+import Loading from './loading';
+import { connect } from 'react-redux';
+import {store} from '../../App';
 
-const Splash = () => {
-  const { containerStyle, imageStyle } = styles;
-  return (
-    <View style={containerStyle}>
-      <Image source={require('../../assets/white_logo_color_background.jpg')} />
-    </View>
-  );
-};
+export class Splash extends React.Component {
+  constructor(props){
+    super(props);
+    this.state = {
+      component : <Loading />
+    };
+  }
 
-const styles = {
-  containerStyle: {
-  width: 100,
-  height: 100
-  },
 
-  imageStyle: {
-    resizeMode: 'contain',
-    width: 100,
-    height: 100,
-  },
-};
+  componentDidMount(){
+       // Start counting when the page is loaded
+       this.timeoutHandle = setTimeout(()=>{
+            // Add your logic for the transition
+            this.setState({ component: <Login /> })
+       }, 2000);
+  }
+  
+  componentWillReceiveProps() {
+    console.log(store.getState().loading.loading);
+    
+    if (store.getState().loading.loading) {
+      this.setState({ component: <Loading /> });
+    } else {
+      this.setState({ component: <Login /> });
+    }
+  }
 
-export default Splash;
+  componentWillUnmount(){
+    clearTimeout(this.timeoutHandle); 
+  }
+
+  render() {
+    return (
+      this.state.component
+    );
+  }
+}
+
+const mapStateToProps = state => {
+  return {
+    loading: state.loading
+  }
+}
+
+export default connect(mapStateToProps,null)(Splash);

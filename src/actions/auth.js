@@ -4,7 +4,7 @@ export const USER_LOGGED_IN = 'USER_LOGGED_IN'
 export const USER_LOGGED_OUT = 'USER_LOGGED_OUT'
 
 
-export function userLoggedIn( user ) {
+export function userLoggedIn(user) {
 
   return {
   	user: user,
@@ -12,9 +12,10 @@ export function userLoggedIn( user ) {
   }
 }
 
-export function userLoggedOut(profileData) {
+export function userLoggedOut() {
 
   return {
-    type: USER_LOGGED_OUT,
+    user: null,
+    type: USER_LOGGED_OUT
   }
 }

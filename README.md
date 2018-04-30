@@ -14,28 +14,51 @@ Users can:
 ## Docs
 We browsed through the following documentations for React Native, Firebase and Facebook OAuth:
 
-#### React Native Starter Kit: boilerplate code && environment setup
+#### React Native
+https://facebook.github.io/react-native/docs/getting-started.html
+
+#### React Native Firebase Starter Kit: boilerplate code && environment setup
 https://github.com/invertase/react-native-firebase-starter
 
 #### React-Native-Navigation: routing & navigation solution
 https://github.com/wix/react-native-navigation
+
+styling:
+https://github.com/wix/react-native-navigation/blob/master/docs/styling-the-navigator.md
+
+#### React-Native-Elements
+https://react-native-training.github.io/react-native-elements/docs/overview.html
+
+#### React-Native-Camera
+https://github.com/react-native-community/react-native-camera
 
 #### Firebase integration for React Native
 https://rnfirebase.io/docs/v4.0.x/auth/getting-started
 
 #### Facebook Auth
 https://rnfirebase.io/docs/v4.0.x/auth/social-auth
+
 https://github.com/facebook/react-native-fbsdk
+
 https://developers.facebook.com/docs/ios/getting-started/#sdk-project
 
 ## Credit
 Big thanks to these awesome developers. We would have gone through more struggles without their previous exploration && contributions to the tech community.
-##### store, actions, reducers:
+
+#### store, actions, reducers:
 reference to code from James Priebe's and June Domingo's projects:
+
 https://github.com/J-Priebe/react-native-facebook-firebase
+
 https://github.com/JuneDomingo/movieapp/tree/feature/similar-movies
+
 #### Add App Icons and Launch Screens to React Native Apps:
 https://medium.com/@scottianstewart/react-native-add-app-icons-and-launch-screens-onto-ios-and-android-apps-3bfbc20b7d4c
-##### Switch between single screen for login and tab based app:
+
+#### Switch between single screen for login and tab based app:
 simonedavico's answer: https://github.com/wix/react-native-navigation/issues/2310
+
 Alvin Chau's tutorial: https://github.com/keri4141/React-Native-Navigation-Redux-Example
+
+#### Change Splash page to login after X seconds of loading
+https://stackoverflow.com/questions/44937498/react-native-change-screen-after-x-seconds

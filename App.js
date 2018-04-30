@@ -11,48 +11,16 @@ export const store = configureStore();
 registerScreens(store, Provider);
 registerScreenVisibilityListener();
 
-export const tabs = [{
-  label: 'Pantry',
-  screen: 'pcnk.Pantry',
-  icon: require('./assets/nav_icons/pcnk_icon_only_red_half_size.png'),
-  title: 'Pantry',
-}, {
-  label: 'Map',
-  screen: 'pcnk.Map',
-  icon: require('./assets/nav_icons/map_red_half_size.png'),
-  title: 'Map',
-}, {
-  label: 'Camera',
-  screen: 'pcnk.Camera',
-  icon: require('./assets/nav_icons/plus_red_half_size.png'),
-  title: 'Camera',
-}, {
-  label: 'Help',
-  screen: 'pcnk.Help',
-  icon: require('./assets/nav_icons/help_red_half_size.png'),
-  title: 'Help',
-}, {
-  label: 'UserProfile',
-  screen: 'pcnk.UserProfile',
-  icon: require('./assets/nav_icons/user_red_half_size.png'),
-  title: 'UserProfile',
-}];
-
 export class App extends React.Component {
   constructor(props) {
     super(props);
     store.subscribe(this.onStoreUpdate.bind(this));
     store.dispatch(appActions.appInitialized());
-    console.log("Im under App constructor");
   }
 
   onStoreUpdate() {
-      let {root} = store.getState().root;
+      const {root} = store.getState().root;
 
-      console.log("Im onStoreUpdate. Look!!!")
-
-      // handle a root change
-      // if your app doesn't change roots in runtime, you can remove onStoreUpdate() altogether
       if (this.currentRoot != root) {
         this.currentRoot = root;
         this.startApp(root);
@@ -60,30 +28,53 @@ export class App extends React.Component {
     }
 
   startApp(root) {
-    console.log("auth user heyyyyyyyyyyyyyyyyyyyyyyyyyy");
-    console.log(store.getState().auth.currentUser);
-
     switch(root) {
       case 'after-login': {
-        console.log("I'm after-login under App");
+        const tabs = [{
+          label: 'Pantry',
+          screen: 'pcnk.Pantry',
+          icon: require('./assets/nav_icons/pcnk_icon_only_red_half_size.png'),
+          title: 'Pantry',
+        }, {
+          label: 'Map',
+          screen: 'pcnk.Map',
+          icon: require('./assets/nav_icons/map_red_half_size.png'),
+          title: 'Map',
+        }, {
+          label: 'Camera',
+          screen: 'pcnk.Camera',
+          icon: require('./assets/nav_icons/plus_red_half_size.png'),
+          title: 'Camera',
+        }, {
+          label: 'Help',
+          screen: 'pcnk.Help',
+          icon: require('./assets/nav_icons/help_red_half_size.png'),
+          title: 'Help',
+        }, {
+          label: 'Profile',
+          screen: 'pcnk.UserProfile',
+          icon: require('./assets/nav_icons/user_red_half_size.png'),
+          title: `${store.getState().profile.bio.first_name} ${store.getState().profile.bio.last_name}`,
+        }];
         Navigation.startTabBasedApp({
           tabs,
           animationType: Platform.OS === 'ios' ? 'slide-down' : 'fade',
           tabsStyle: {
-            tabBarBackgroundColor: '#61D2D0',
-            tabBarButtonColor: '#ffffff',
-            tabBarSelectedButtonColor: '#ff505c',
+            tabBarBackgroundColor: '#F9F9F9',
+            tabBarButtonColor: '#323031',
+            tabBarTextColor: '#323031',
+            tabBarSelectedButtonColor: '#ED4009',
             tabFontFamily: 'BioRhyme-Bold',
           },
           appStyle: {
-            tabBarBackgroundColor: '#003a66',
+            tabBarBackgroundColor: '#F9F9F9',
             navBarButtonColor: '#ffffff',
-            tabBarButtonColor: '#ffffff',
-            navBarTextColor: '#ffffff',
-            tabBarSelectedButtonColor: '#ed4008',
-            navigationBarColor: '#003a66',
-            navBarBackgroundColor: '#61D2D0',
-            statusBarColor: '#002b4c',
+            tabBarButtonColor: '#323031',
+            navBarTextColor: '#323031',
+            tabBarSelectedButtonColor: '#ED4009',
+            navigationBarColor: '#F9F9F9',
+            navBarBackgroundColor: '#F9F9F9',
+            statusBarColor: '#ED4009',
             tabFontFamily: 'BioRhyme-Bold',
           },
           iconStyle: {
@@ -98,7 +89,6 @@ export class App extends React.Component {
       }
 
       case 'login': {
-        console.log("I'm login under App");
         Navigation.startSingleScreenApp({
           screen: {
             screen: 'pcnk.SignInOptions',
@@ -112,7 +102,6 @@ export class App extends React.Component {
       }
 
       case 'splash': {
-        console.log("I'm splash under App");
         Navigation.startSingleScreenApp({
           screen: {
             screen: 'pcnk.Splash',

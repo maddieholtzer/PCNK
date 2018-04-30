@@ -1,9 +1,11 @@
 import {
-  UPDATE_PROFILE_BIO
-} from '../actions/profile'
+  START_LOADING,
+  END_LOADING
+} from '../actions/loading';
+
 
 const initialState = {
-	bio: null
+	loading: false
 }
 
 
@@ -11,11 +13,18 @@ export default function reducer(state = initialState, action) {
 
   switch (action.type) {
 
-	  case UPDATE_PROFILE_BIO:
+	  case START_LOADING:
 
 	    return {
-	      bio: action.bio
+	      loading: true
 	    }
+
+	  case END_LOADING:
+
+	  	return {
+	  	  loading: false
+	  	}
+
 
 	  default:
 	    return state
