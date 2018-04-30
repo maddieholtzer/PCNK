@@ -20,10 +20,10 @@ export class App extends React.Component {
 
   onStoreUpdate() {
       const {root} = store.getState().root;
-      
+
       if (this.currentRoot != root) {
         this.currentRoot = root;
-        this.startApp(root);      
+        this.startApp(root);
       }
     }
 
@@ -56,9 +56,10 @@ export class App extends React.Component {
           animationType: Platform.OS === 'ios' ? 'slide-down' : 'fade',
           tabsStyle: {
             tabBarBackgroundColor: '#F9F9F9',
-            tabBarButtonColor: '#323031',
-            tabBarTextColor: '#323031',
+            tabBarButtonColor: '#595959',
+            tabBarTextColor: '#595959',
             tabBarSelectedButtonColor: '#ED4009',
+            tabBarSelectedTextColor: '#ED4009',
             tabFontFamily: 'BioRhyme-Bold',
           },
           appStyle: {
@@ -95,7 +96,7 @@ export class App extends React.Component {
         });
         break;
       }
-      
+
       case 'splash': {
         Navigation.startSingleScreenApp({
           screen: {
