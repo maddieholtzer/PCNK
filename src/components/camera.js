@@ -44,9 +44,14 @@ class OurCamera extends React.Component {
 
 const styles = {
   containerStyle: {
-    flex: 1,
-    backgroundColor: '#000',
     flexDirection: 'column',
+    flex: 1,
+    marginTop: 0.3,
+    marginBottom: 0.3,
+    borderBottomWidth: 0.5,
+    borderTopWidth: 0.5,
+    borderColor: '#A3A1A2',
+    backgroundColor: "#ffffff",
   },
 
   preview: {
