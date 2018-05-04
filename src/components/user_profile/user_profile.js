@@ -1,17 +1,19 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, Image, TouchableOpacity } from 'react-native';
 import { store } from '../../../App';
+import { connect } from 'react-redux';
+import UserProfileHeader from './user_profile_header';
 
-export default class UserProfile extends React.Component {
+export class UserProfile extends React.Component {
   render() {
-    const { viewStyle } = styles;
-    const bio = store.getState().profile.bio;
-    const imgUrl = bio.picture.data.url;
-    console.log(store.getState().auth.currentUser);
+    const {
+      viewStyle,
+    } = styles;
+    const currentUser = store.getState().auth.currentUser;
 
     return (
       <View style={viewStyle}>
-        
+        <UserProfileHeader />
       </View>
     );
   }
@@ -26,5 +28,7 @@ const styles = {
     borderTopWidth: 0.5,
     borderColor: '#A3A1A2',
     backgroundColor: "#ffffff",
-  }
+  },
 };
+
+export default connect()(UserProfile);

@@ -1,44 +1,95 @@
 import React from 'react';
-import { Text, View } from 'react-native'; //desctructure import
-import firebase from 'react-native-firebase';
+import { View, Text, Image, TouchableOpacity } from 'react-native';
 import { store } from '../../../App';
+import { connect } from 'react-redux';
+import EditButton from './edit_button';
 
-const UserProfileHeader = () => {
-  const { textStyle, viewStyle } = styles;
-  if (!firebase.User){
-    const firstname = store.getState().auth.currentUser.additionalUserInfo.profile.first_name;
-    const lastname = store.getState().auth.currentUser.additionalUserInfo.profile.last_name;
-    const name = firstname + " " + lastname;
+export class UserProfileHeader extends React.Component {
+  render() {
+    const {
+      avatarStyle,
+      smallTextStyle,
+      avatarWrapperStyle,
+      bigTextStyle,
+      headerContainerStyle,
+      rightWrapperStyle,
+      columnContainerStyle,
+      wrapperStyle
+    } = styles;
+    const currentUser = store.getState().auth.currentUser;
+    const imgUrl = currentUser.additionalUserInfo.profile.picture.data.url;
+    // TODO: replace groups and items with user info from state
+    const groups = 2;
+    const items = 5;
+    const level = Math.floor((groups*10 + items*5)/10);
     return (
-      <View style={viewStyle}>
-        <Text style={textStyle}>{name}</Text>;
+      <View style={headerContainerStyle}>
+        <View style={avatarWrapperStyle}>
+          <Image
+            style={avatarStyle}
+            source={{uri: `${imgUrl}`}}
+          />
+          <Text style={smallTextStyle}>{`Level ${level}`}</Text>
+        </View>
+
+        <View style={columnContainerStyle}>
+          <View style={rightWrapperStyle}>
+            <View style={wrapperStyle}>
+              <Text style={bigTextStyle}>{groups}</Text>
+              <Text style={smallTextStyle}>Groups</Text>
+            </View>
+
+            <View style={wrapperStyle}>
+              <Text style={bigTextStyle}>{items}</Text>
+              <Text style={smallTextStyle}>Items Traded</Text>
+            </View>
+          </View>
+
+          <View style={rightWrapperStyle}>
+            <EditButton />
+          </View>
+        </View>
       </View>
     );
   }
-
-  return (
-    <View style={viewStyle}>
-      <Text style={textStyle}>`${firebase.User.email}`</Text>;
-    </View>
-  );
-};
+}
 
 const styles = {
-  viewStyle: {
-    backgroundColor: '#F8F8F8',
-    justifyContent: 'center',
-    alignItems: 'center',
-    height: 60,
-    paddingTop: 20,
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2},
-    shadowOpacity: 0.2,
-    elevation: 2,
-    position: 'relative'
+  avatarStyle: {
+    width: 100,
+    height: 100,
+    borderRadius: 50,
   },
-  textStyle: {
+  smallTextStyle: {
+    fontSize: 16,
+  },
+  avatarWrapperStyle: {
+    width: 100,
+    height: 130,
+    marginTop: 20,
+    alignItems: 'center',
+  },
+  wrapperStyle: {
+    marginTop: 25,
+    alignItems: 'center',
+    width: 110,
+    height: 60
+  },
+  bigTextStyle: {
     fontSize: 20
+  },
+  headerContainerStyle: {
+    flexDirection: 'row',
+    marginLeft: 20,
+    marginRight: 20
+  },
+  rightWrapperStyle: {
+    marginLeft: 10,
+    flexDirection: 'row'
+  },
+  columnContainerStyle: {
+    flexDirection: 'column'
   }
 };
 
-export default UserProfileHeader;
+export default connect()(UserProfileHeader);
