@@ -84,7 +84,7 @@ export class App extends React.Component {
             tabBarSelectedButtonColor: '#ED4009',
             navigationBarColor: '#F9F9F9',
             navBarBackgroundColor: '#F9F9F9',
-            statusBarColor: '#ED4009',
+            statusBarColor: '#F9F9F9',
             tabFontFamily: 'BioRhyme-Bold',
           },
           iconStyle: {
