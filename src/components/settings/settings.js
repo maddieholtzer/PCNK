@@ -6,8 +6,15 @@ import { connect } from 'react-redux';
 class Settings extends React.Component {
   constructor(props) {
     super(props);
-    // if you want to listen on navigator events, set this up
-    // this.props.navigator.setOnNavigatorEvent(this.onNavigatorEvent.bind(this));
+    this.props.navigator.setOnNavigatorEvent(this.onNavigatorEvent.bind(this));
+  }
+
+  onNavigatorEvent(event) {
+    if (event.type === 'NavBarButtonPress') {
+      if (event.id === 'close') {
+        this.props.navigator.dismissModal();
+      }
+    }
   }
 
   render() {
