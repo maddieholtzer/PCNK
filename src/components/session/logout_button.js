@@ -41,19 +41,18 @@ const styles = {
   },
 
   grayButtonStyle: {
-    height: 60,
-    marginTop: 10,
     backgroundColor: "#ffffff",
     borderBottomWidth: 0.5,
     borderTopWidth: 0.5,
     borderColor: '#A3A1A2',
-    marginBottom: 50,
     paddingRight: 15,
+    paddingBottom: 15,
+    alignItems: 'center'
   },
 
   layoutStyle: {
     justifyContent: 'space-between',
-    marginTop: 20,
+    marginTop: 30,
   },
 };
 
