@@ -21,7 +21,7 @@ export class UserProfile extends React.Component {
 						{
 							id: 'close',
 							title: 'Close',
-							buttonFontSize: 14
+							buttonFontSize: 16
 						}
 					];
 				}

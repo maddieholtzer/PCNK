@@ -2,6 +2,7 @@ import React from 'react';
 import { View } from 'react-native';
 import LogoutButton from '../session/logout_button';
 import { connect } from 'react-redux';
+import { ListItem } from 'react-native-elements';
 
 class Settings extends React.Component {
   constructor(props) {
@@ -21,6 +22,17 @@ class Settings extends React.Component {
     const { viewStyle } = styles;
     return (
       <View style={viewStyle}>
+        <View>
+          {
+            list.map((item, i) => (
+              <ListItem
+                key={i}
+                title={item.title}
+                leftIcon={{ name: item.icon }}
+              />
+            ))
+          }
+        </View>
         <LogoutButton />
       </View>
     );
@@ -33,6 +45,17 @@ const styles = {
     flex: 1,
   },
 }
+
+const list = [
+  {
+    title: 'Appointments',
+    icon: 'av-timer'
+  },
+  {
+    title: 'Trips',
+    icon: 'flight-takeoff'
+  },
+]
 
 Settings.navigatorStyle = {
 	statusBarColor: '#ED4009',
