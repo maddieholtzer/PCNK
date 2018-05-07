@@ -3,6 +3,7 @@ import { View } from 'react-native';
 import LogoutButton from '../session/logout_button';
 import { connect } from 'react-redux';
 import { ListItem } from 'react-native-elements';
+import { Navigation } from 'react-native-navigation';
 
 class Settings extends React.Component {
   constructor(props) {
@@ -19,7 +20,31 @@ class Settings extends React.Component {
   }
 
   showDetail(name) {
-    console.log(name)
+    const leftButtons = [
+      {
+        title: 'Back', // for a textual button, provide the button title (label)
+        id: 'back', // id for this button, given in onNavigatorEvent(event) to help understand which button was clicked
+        buttonColor: '#ED4009', // Optional, iOS only. Set color for the button (can also be used in setButtons function to set different button style programatically)
+        buttonFontSize: 16, // Set font size for the button (can also be used in setButtons function to set different button style programatically)
+        buttonFontWeight: '600', // Set font weight for the button (can also be used in setButtons function to set different button style programatically)
+      }
+    ];
+    if (name=='assistant') {
+      Navigation.showModal({
+        screen: 'pcnk.Help', // unique ID registered with Navigation.registerScreen
+        title: 'How to Use PCNK', // title of the screen as appears in the nav bar (optional)
+        navigatorButtons: {leftButtons},
+        animationType: 'slide-up' // 'none' / 'slide-up' , appear animation for the modal (optional, default 'slide-up')
+      });
+    }
+    if (name=='chat') {
+      Navigation.showModal({
+        screen: 'pcnk.Contact', // unique ID registered with Navigation.registerScreen
+        title: 'Contact Us', // title of the screen as appears in the nav bar (optional)
+        navigatorButtons: {leftButtons},
+        animationType: 'slide-up' // 'none' / 'slide-up' , appear animation for the modal (optional, default 'slide-up')
+      });
+    }
   }
 
   render() {
@@ -72,7 +97,6 @@ const list = [
     icon: 'chat'
   },
 ]
-
 
 Settings.navigatorStyle = {
 	statusBarColor: '#ED4009',

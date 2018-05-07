@@ -4,7 +4,7 @@ import { store } from '../../../App';
 import { connect } from 'react-redux';
 import UserProfileHeader from './user_profile_header';
 
-export class UserProfile extends React.Component {
+class UserProfile extends React.Component {
 
   constructor(props) {
     super(props);
