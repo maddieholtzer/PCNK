@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, ScrollView } from 'react-native';
+import { View, Text, ScrollView, Linking } from 'react-native';
 
 class Help extends React.Component {
   constructor(props) {
@@ -16,17 +16,15 @@ class Help extends React.Component {
   }
 
   render() {
-    const { containerStyle, headerStyle, contentStyle } = styles;
+    const { containerStyle, headerStyle, contentStyle, linkStyle } = styles;
 
     return (
       <View style={{flex:1, backgroundColor:'#FFD6C0'}}>
         <ScrollView style={containerStyle}>
-          <Text style={headerStyle}>What is PCNK</Text>
-          <Text style={contentStyle}>PCNK is a mobile app for you to give away or take food within a personal network.</Text>
-          <Text style={headerStyle}>How do I start?</Text>
-          <Text style={contentStyle}>Create a group, or join an existing group. Then you can post food items to give away, or take food from the "pantry".</Text>
-          <Text style={headerStyle}>Thank you!</Text>
-          <Text style={contentStyle}>Together we can reduce food waste.</Text>
+          <Text style={headerStyle}>About Us</Text>
+          <Text style={contentStyle}>PCNK is built by 4 developers: Alizeh Iqbal, Carolyn Scoville, Mattie Holtzer, Yangchen Shen. </Text>
+          <Text style={headerStyle}>Github Repo</Text>
+          <Text style={linkStyle} onPress={() => Linking.openURL('https://github.com/mattieholtzer/PCNK')}> github.com/mattieholtzer/PCNK </Text>
         </ScrollView>
       </View>
     );
@@ -52,11 +50,21 @@ const styles = {
     alignSelf: 'center',
     textDecorationLine: 'underline'
   },
+
   contentStyle: {
     marginTop: 10,
     fontSize: 16,
     fontWeight: '300',
     color: '#333',
+    marginLeft: 25,
+    marginRight: 25
+  },
+
+  linkStyle: {
+    marginTop: 10,
+    fontSize: 16,
+    fontWeight: '300',
+    color: 'blue',
     marginLeft: 25,
     marginRight: 25
   }

@@ -46,15 +46,19 @@ export class App extends React.Component {
           icon: require('./assets/nav_icons/plus_red_half_size.png'),
           title: 'Camera',
         }, {
-          label: 'Help',
-          screen: 'pcnk.Help',
-          icon: require('./assets/nav_icons/help_red_half_size.png'),
-          title: 'Help',
-        }, {
           label: 'Profile',
           screen: 'pcnk.UserProfile',
           icon: require('./assets/nav_icons/user_red_half_size.png'),
           title: `${store.getState().profile.bio.first_name} ${store.getState().profile.bio.last_name}`,
+          navigatorButtons: {
+            rightButtons: [
+              {
+                title: 'Settings',
+                icon: require('./assets/nav_icons/settings.png'), // for icon button, provide the local image asset name
+                id: 'settings', // id for this button, given in onNavigatorEvent(event) to help understand which button was clicked
+              }
+            ]
+          }
         }];
         Navigation.startTabBasedApp({
           tabs,
@@ -69,13 +73,13 @@ export class App extends React.Component {
           },
           appStyle: {
             tabBarBackgroundColor: '#F9F9F9',
-            navBarButtonColor: '#ffffff',
+            navBarButtonColor: 'black',
             tabBarButtonColor: '#323031',
             navBarTextColor: '#323031',
             tabBarSelectedButtonColor: '#ED4009',
             navigationBarColor: '#F9F9F9',
             navBarBackgroundColor: '#F9F9F9',
-            statusBarColor: '#ED4009',
+            statusBarColor: '#F9F9F9',
             tabFontFamily: 'BioRhyme-Bold',
           },
           iconStyle: {
