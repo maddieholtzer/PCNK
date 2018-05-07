@@ -42,6 +42,12 @@ https://github.com/facebook/react-native-fbsdk
 
 https://developers.facebook.com/docs/ios/getting-started/#sdk-project
 
+#### Firebase Image Storage
+https://github.com/invertase/react-native-firebase/blob/docs_old/docs/modules/storage.md
+
+https://rnfirebase.io/docs/v4.0.x/storage/reference/storage
+
+
 ## Credit
 Big thanks to these awesome developers. We would have gone through more struggles without their previous exploration && contributions to the tech community.
 
@@ -65,3 +71,6 @@ https://stackoverflow.com/questions/44937498/react-native-change-screen-after-x-
 
 #### Movie app using React-Native-Navigation
 https://github.com/junedomingo/movieapp
+
+#### Firebase Image Storage example
+https://github.com/dailydrip/react-native-firebase-storage/blob/master/src/App.js#L43-L69
