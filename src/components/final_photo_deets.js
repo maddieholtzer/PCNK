@@ -1,8 +1,14 @@
 import React from 'react';
-import { View, Text, Image, Dimensions, Slider, TextInput, Keyboard, TouchableWithoutFeedback } from 'react-native';
+import { View, Text, Image, Dimensions, Slider, TextInput, Keyboard, TouchableWithoutFeedback, Platform } from 'react-native';
 import CustomButton from './emoji_button';
 import {Navigation} from 'react-native-navigation';
 import firebase from 'react-native-firebase';
+import RNFetchBlob from 'react-native-fetch-blob';
+
+const Blob = RNFetchBlob.polyfill.Blob;
+const fs = RNFetchBlob.fs;
+window.XMLHttpRequest = RNFetchBlob.polyfill.XMLHttpRequest;
+window.Blob = Blob;
 
 class FinalPhotoDeets extends React.Component{
 
@@ -17,7 +23,58 @@ class FinalPhotoDeets extends React.Component{
     };
     this.setSliderval = this.setSliderval.bind(this);
     this.createFoodItem = this.createFoodItem.bind(this);
+    this.getSelectedImages = this.getSelectedImages.bind(this);
   }
+
+  getSelectedImages() {
+    const metadata = {
+    contentType: 'image/jpeg'
+};
+    firebase.storage().ref('foodImages').putFile(`${this.props.img}`, metadata)
+    .then(uploadedFile => {console.log(uploadedFile);}).catch(error => {console.error(error);});
+
+    // let blobbedImage = RNFetchBlob.wrap(this.props.img);
+    // Blob.build(blobbedImage, {type: 'image/jpg'}).then(blob => {
+    //   foodImagesREf.put(blob, { contentType: 'image/jpg'}).then(function(snapshot) {
+    //     console.log("Uploaded a blob or file!");
+    //   });
+    //   blob.close();
+    // });
+  }
+
+  // getSelectedImages(uri, mime = 'image/jpg') {
+  //
+  //     return new Promise((resolve, reject) => {
+  //       const uploadUri = this.props.img;
+  //       let uploadBlob = null;
+  //       console.log(`uploadUri is: ${this.props.img}`);
+  //       console.log(`uploadUri.name is: ${uploadUri.name}`);
+  //
+  //       const imageRef = firebase.storage().ref('foodImages/' + file.name);
+  //
+  //
+  //       fs.readFile(uploadUri, 'base64')
+  //         .then((data) => {
+  //           return Blob.build(data, { type: `${mime};BASE64` });
+  //         })
+  //         .then((blob) => {
+  //           uploadBlob = blob;
+  //           return imageRef.put(blob, { contentType: mime });
+  //         })
+  //         .then(() => {
+  //           uploadBlob.close();
+  //           return imageRef.getDownloadURL();
+  //         })
+  //         .then((url) => {
+  //           resolve(url);
+  //         })
+  //         .catch((error) => {
+  //           reject(error);
+  //       });
+  //     });
+  //   }
+
+
 
   setSliderval(val){
     let sliderval2 = '';
@@ -139,8 +196,10 @@ class FinalPhotoDeets extends React.Component{
             <CustomButton style={buttonStyle}
               imgSource={require('../../assets/check.png')}
               textStyle={{fontSize: 20, alignSelf: 'center', marginTop: 10}}
+              id='post-photo'
               onPress={() => {
                 this.createFoodItem();
+                this.getSelectedImages();
                 Navigation.dismissAllModals();
               }}
               >
