@@ -18,6 +18,10 @@ class Settings extends React.Component {
     }
   }
 
+  showDetail(name) {
+    console.log(name)
+  }
+
   render() {
     const { viewStyle, listStyle } = styles;
     return (
@@ -38,7 +42,7 @@ class Settings extends React.Component {
                   }
                 }
                 titleStyle={{ fontSize: 16, color: 'black' }}
-              />
+                onPress={ () => this.showDetail(item.icon)} />
             ))
           }
         </View>
@@ -68,6 +72,7 @@ const list = [
     icon: 'chat'
   },
 ]
+
 
 Settings.navigatorStyle = {
 	statusBarColor: '#ED4009',
