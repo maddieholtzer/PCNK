@@ -19,16 +19,25 @@ class Settings extends React.Component {
   }
 
   render() {
-    const { viewStyle } = styles;
+    const { viewStyle, listStyle } = styles;
     return (
       <View style={viewStyle}>
-        <View>
+        <View style={listStyle}>
           {
             list.map((item, i) => (
               <ListItem
                 key={i}
                 title={item.title}
                 leftIcon={{ name: item.icon }}
+                containerStyle={
+                  { paddingTop: 15,
+                    paddingBottom: 15,
+                    borderTopWidth: 0.5,
+                    borderBottomWidth: 0.5,
+                    borderColor: '#A3A1A2',
+                  }
+                }
+                titleStyle={{ fontSize: 16, color: 'black' }}
               />
             ))
           }
@@ -44,16 +53,19 @@ const styles = {
     backgroundColor: "#F8f8f9",
     flex: 1,
   },
+  listStyle: {
+    backgroundColor: "white",
+  },
 }
 
 const list = [
   {
-    title: 'Appointments',
-    icon: 'av-timer'
+    title: 'How to use PCNK',
+    icon: 'assistant'
   },
   {
-    title: 'Trips',
-    icon: 'flight-takeoff'
+    title: 'Contact Us',
+    icon: 'chat'
   },
 ]
 

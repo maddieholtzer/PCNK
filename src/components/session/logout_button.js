@@ -42,17 +42,17 @@ const styles = {
 
   grayButtonStyle: {
     backgroundColor: "#ffffff",
+    paddingRight: 15,
+    paddingBottom: 15,
+    alignItems: 'center',
     borderBottomWidth: 0.5,
     borderTopWidth: 0.5,
     borderColor: '#A3A1A2',
-    paddingRight: 15,
-    paddingBottom: 15,
-    alignItems: 'center'
   },
 
   layoutStyle: {
+    marginTop: 45,
     justifyContent: 'space-between',
-    marginTop: 30,
   },
 };
 
