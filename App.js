@@ -46,11 +46,6 @@ export class App extends React.Component {
           icon: require('./assets/nav_icons/plus_red_half_size.png'),
           title: 'Camera',
         }, {
-          label: 'Help',
-          screen: 'pcnk.Help',
-          icon: require('./assets/nav_icons/help_red_half_size.png'),
-          title: 'Help',
-        }, {
           label: 'Profile',
           screen: 'pcnk.UserProfile',
           icon: require('./assets/nav_icons/user_red_half_size.png'),
