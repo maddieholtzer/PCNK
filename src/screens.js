@@ -1,8 +1,9 @@
 import {Navigation, ScreenVisibilityListener} from 'react-native-navigation';
 import Pantry from './components/pantry';
 import UserProfile from './components/user_profile/user_profile';
-import Help from './components/help';
-import Contact from './components/contact';
+import Preferences from './components/user_profile/preferences';
+import Help from './components/settings/help';
+import Contact from './components/settings/contact';
 import Group from './components/group/group';
 import Camera from './components/camera'
 import Giveaway from './components/giveaway'
@@ -17,6 +18,7 @@ export function registerScreens(store, Provider){
   Navigation.registerComponent('pcnk.SignInOptions', () => SignInOptions, store, Provider);
   Navigation.registerComponent('pcnk.Pantry', () => Pantry, store, Provider);
   Navigation.registerComponent('pcnk.UserProfile', () => UserProfile, store, Provider);
+  Navigation.registerComponent('pcnk.Preferences', () => Preferences, store, Provider);
   Navigation.registerComponent('pcnk.Help', () => Help, store, Provider);
   Navigation.registerComponent('pcnk.Contact', () => Contact, store, Provider);
   Navigation.registerComponent('pcnk.Group', () => Group, store, Provider);
