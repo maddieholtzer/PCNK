@@ -56,6 +56,7 @@ const styles = {
     flexDirection: 'column',
     flex: 1,
     marginTop: 0,
+    backgroundColor: 'white'
   },
 
   imageContainer: {

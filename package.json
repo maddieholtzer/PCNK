@@ -1,5 +1,5 @@
 {
-  "name": "pcnkflex",
+  "name": "PCNK",
   "version": "0.1.0",
   "private": true,
   "devDependencies": {
@@ -37,6 +37,7 @@
     "redux-logger": "^2.7.4",
     "redux-promise": "^0.5.3",
     "redux-thunk": "^2.1.0",
-    "seamless-immutable": "^7.1.2"
+    "seamless-immutable": "^7.1.2",
+    "teaset": "^0.5.6"
   }
 }

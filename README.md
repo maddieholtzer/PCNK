@@ -42,6 +42,14 @@ https://github.com/facebook/react-native-fbsdk
 
 https://developers.facebook.com/docs/ios/getting-started/#sdk-project
 
+#### Firebase Image Storage
+https://github.com/invertase/react-native-firebase/blob/docs_old/docs/modules/storage.md
+
+https://rnfirebase.io/docs/v4.0.x/storage/reference/storage
+
+#### teaset - React Native UI Library
+https://github.com/rilyu/teaset/blob/master/docs/cn/README.md
+
 ## Credit
 Big thanks to these awesome developers. We would have gone through more struggles without their previous exploration && contributions to the tech community.
 
@@ -62,3 +70,9 @@ Alvin Chau's tutorial: https://github.com/keri4141/React-Native-Navigation-Redux
 
 #### Change Splash page to login after X seconds of loading
 https://stackoverflow.com/questions/44937498/react-native-change-screen-after-x-seconds
+
+#### Movie app using React-Native-Navigation
+https://github.com/junedomingo/movieapp
+
+#### Firebase Image Storage example
+https://github.com/dailydrip/react-native-firebase-storage/blob/master/src/App.js#L43-L69

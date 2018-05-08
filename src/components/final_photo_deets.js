@@ -32,47 +32,7 @@ class FinalPhotoDeets extends React.Component{
 };
     firebase.storage().ref().putFile(`${this.props.img}`, metadata)
     .then(uploadedFile => {console.log(uploadedFile);}).catch(error => {console.error(error);});
-
-    // let blobbedImage = RNFetchBlob.wrap(this.props.img);
-    // Blob.build(blobbedImage, {type: 'image/jpg'}).then(blob => {
-    //   foodImagesREf.put(blob, { contentType: 'image/jpg'}).then(function(snapshot) {
-    //     console.log("Uploaded a blob or file!");
-    //   });
-    //   blob.close();
-    // });
   }
-
-  // getSelectedImages(uri, mime = 'image/jpg') {
-  //
-  //     return new Promise((resolve, reject) => {
-  //       const uploadUri = this.props.img;
-  //       let uploadBlob = null;
-  //       console.log(`uploadUri is: ${this.props.img}`);
-  //       console.log(`uploadUri.name is: ${uploadUri.name}`);
-  //
-  //       const imageRef = firebase.storage().ref('foodImages/' + file.name);
-  //
-  //
-  //       fs.readFile(uploadUri, 'base64')
-  //         .then((data) => {
-  //           return Blob.build(data, { type: `${mime};BASE64` });
-  //         })
-  //         .then((blob) => {
-  //           uploadBlob = blob;
-  //           return imageRef.put(blob, { contentType: mime });
-  //         })
-  //         .then(() => {
-  //           uploadBlob.close();
-  //           return imageRef.getDownloadURL();
-  //         })
-  //         .then((url) => {
-  //           resolve(url);
-  //         })
-  //         .catch((error) => {
-  //           reject(error);
-  //       });
-  //     });
-  //   }
 
 
 
@@ -208,6 +168,82 @@ class FinalPhotoDeets extends React.Component{
           </View>
         </View>
       </TouchableWithoutFeedback>
+
+      <View style={containerStyle}>
+      <View style={imageContainer}>
+      <Image source={{uri: this.state.img}} style={imageStyle}/>
+      <TextInput placeholder='  Where did you put it/Very brief description' multiline={true}
+      style={{flex: 1.5, height: 85, borderColor: 'yellow', borderWidth: 1, backgroundColor: '#F0F0F0', width: 150, marginTop: 45, borderRadius: 3, marginRight: 20}}
+      onChangeText={() => {txt => this.setState({text: txt})}}
+      value={this.state.text}
+      />
+      </View>
+
+      <Text style={textStyle}>Pick up by: {this.state.sliderval}</Text>
+      <Slider
+      step={1}
+      maximumValue={4}
+      style={{ width: Dimensions.get('window').width/1.2, position: 'relative', marginTop: 0 }}
+      onValueChange={val => {
+        this.setSliderval(val);
+        this.setState({ value: val });
+      }}
+      value={this.state.value}
+      />
+
+      <Text style={textStyle}>Category: {this.state.category}</Text>
+      <View style={{flex: .5, flexDirection: 'row', justifyContent: 'space-around'}}>
+      <CustomButton style={buttonStyle}
+      imgSource={require('../../assets/emojis/red-apple_emoji.png')}
+      textStyle={{fontSize: 9, alignSelf: 'center', marginTop: 0}}
+      onPress={() => {
+        this.setState({category: 'fruit'});
+      }}>
+      Fruit
+      </CustomButton >
+      <CustomButton style={buttonStyle}
+      imgSource={require('../../assets/emojis/carrot_emoji.png')}
+      textStyle={{fontSize: 9, alignSelf: 'center', marginTop: 0}}
+      onPress={() => {
+        this.setState({category: 'veggies'});
+      }}>
+      Veggies
+      </CustomButton >
+      <CustomButton style={buttonStyle}
+      imgSource={require('../../assets/emojis/fork-and-knife-with-plate_emoji.png')}
+      textStyle={{fontSize: 9, alignSelf: 'center', marginTop: 0}}
+      onPress={() => {
+        this.setState({category: 'meal'});
+      }}>
+      Meal
+      </CustomButton >
+      <CustomButton style={buttonStyle}
+      imgSource={require('../../assets/emojis/pretzel_emoji.png')}
+      textStyle={{fontSize: 9, alignSelf: 'center', marginTop: 0}}
+      onPress={() => {
+        this.setState({category: 'snack'});
+      }}>
+      Snack
+      </CustomButton >
+      <CustomButton style={buttonStyle}
+      imgSource={require('../../assets/emojis/croissant_emoji.png')}
+      textStyle={{fontSize: 9, alignSelf: 'center', marginTop: 0}}
+      onPress={() => {
+        this.setState({category: 'baked good'});
+      }}>
+      Baked Good
+      </CustomButton >
+      <CustomButton style={buttonStyle}
+      imgSource={require('../../assets/emojis/soft-ice-cream_emoji.png')}
+      textStyle={{fontSize: 9, alignSelf: 'center', marginTop: 0}}
+      onPress={() => {
+        this.setState({category: 'dessert'});
+      }}>
+      Dessert
+      </CustomButton >
+      </View>
+      </View>
+
     );
 
   }
@@ -229,6 +265,7 @@ const styles = {
     flexDirection: 'column',
     flex: 1.3,
     marginTop: 0,
+    backgroundColor: 'white'
   },
 
   imageContainer: {
@@ -241,9 +278,7 @@ const styles = {
   },
 
   imageStyle: {
-    // alignSelf: 'stretch',
     flex: .5,
-    // height: 300,
     width: Dimensions.get('window').width/4,
     marginTop: 0,
     resizeMode: 'contain',
