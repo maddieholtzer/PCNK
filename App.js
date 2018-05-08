@@ -36,15 +36,20 @@ export class App extends React.Component {
           icon: require('./assets/nav_icons/pcnk_icon_only_red_half_size.png'),
           title: 'Pantry',
         }, {
-          label: 'Map',
-          screen: 'pcnk.Map',
-          icon: require('./assets/nav_icons/map_red_half_size.png'),
-          title: 'Map',
+          label: 'Giveaway',
+          screen: 'pcnk.Giveaway',
+          icon: require('./assets/nav_icons/giveaway.png'),
+          title: 'My Giveaway',
         }, {
           label: 'Camera',
           screen: 'pcnk.Camera',
           icon: require('./assets/nav_icons/plus_red_half_size.png'),
           title: 'Camera',
+        }, {
+          label: 'Group',
+          screen: 'pcnk.Group',
+          icon: require('./assets/nav_icons/group.png'),
+          title: 'Group',
         }, {
           label: 'Profile',
           screen: 'pcnk.UserProfile',

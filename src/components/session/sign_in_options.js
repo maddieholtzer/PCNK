@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Image, Text } from 'react-native';
+import { View, Image, Text, StatusBar } from 'react-native';
 import CustomButton from '../button';
 import CardSection from '../card_section';
 import AltButton from '../alt_button';
@@ -17,36 +17,37 @@ export class SignInOptions extends React.Component {
     blueButtonWhiteTextStyle, altButtonStyle } = styles;
     return (
       <View style={layoutStyle}>
-          <CardSection>
-              <View style={halfLayoutStyle}>
-                <Image source={require('../../../assets/logo_transparent_background.png')}
-                  style={imageStyle}/>
-              </View>
-          </CardSection>
-          <CardSection>
+        <StatusBar barStyle="light-content" hidden={false} />
+        <CardSection>
             <View style={halfLayoutStyle}>
-              <View style={altButtonStyle}>
-                <AltButton
-                  buttonStyle={blueButtonStyle}
-                  textStyle={blueButtonWhiteTextStyle}
-                  imgSource={facebookIcon}
-                  onPress={ () => this.onLoginPress() }>
-                  Sign In with Facebook
-                </AltButton>
-              </View>
-
+              <Image source={require('../../../assets/logo_transparent_background.png')}
+                style={imageStyle}/>
             </View>
-          </CardSection>
+        </CardSection>
+        <CardSection>
+          <View style={halfLayoutStyle}>
+            <View style={altButtonStyle}>
+              <AltButton
+                buttonStyle={blueButtonStyle}
+                textStyle={blueButtonWhiteTextStyle}
+                imgSource={facebookIcon}
+                onPress={ () => this.onLoginPress() }>
+                Sign In with Facebook
+              </AltButton>
+            </View>
+
+          </View>
+        </CardSection>
       </View>
     );
   }
-  
+
   /*
   onLoginPress:
     Changes the root value of the app to be 'after-login', changing it to tab view
   */
   onLoginPress() {
-    this.props.dispatch(appActions.login());   
+    this.props.dispatch(appActions.login());
   }
 }
 
@@ -117,7 +118,9 @@ const styles = {
   },
 
   layoutStyle: {
-    justifyContent: 'space-between',
+    flex: 1,
+    backgroundColor: 'white',
+    justifyContent: 'space-around',
     marginTop: 20,
   },
 

@@ -1,12 +1,12 @@
 import React from 'react';
 import { View, Text } from 'react-native';
 
-export default class Map extends React.Component {
+export default class Giveaway extends React.Component {
   render() {
     const { viewStyle } = styles;
     return (
       <View style={viewStyle}>
-        
+
       </View>
     );
   }
