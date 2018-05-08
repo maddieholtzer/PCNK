@@ -30,7 +30,7 @@ class FinalPhotoDeets extends React.Component{
     const metadata = {
     contentType: 'image/jpeg'
 };
-    firebase.storage().ref('foodImages').putFile(`${this.props.img}`, metadata)
+    firebase.storage().ref().putFile(`${this.props.img}`, metadata)
     .then(uploadedFile => {console.log(uploadedFile);}).catch(error => {console.error(error);});
 
     // let blobbedImage = RNFetchBlob.wrap(this.props.img);
