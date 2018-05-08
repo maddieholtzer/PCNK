@@ -1,4 +1,4 @@
-package com.pcnk.pcnkflex;
+package com.pcnk;
 
 import android.app.Application;
 
