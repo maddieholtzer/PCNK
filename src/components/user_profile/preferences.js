@@ -2,6 +2,8 @@ import React from 'react';
 import { View, Text, ScrollView } from 'react-native';
 import { connect } from 'react-redux';
 import { store } from '../../../App';
+import { FormLabel, FormInput, FormValidationMessage } from 'react-native-elements';
+import { CheckBox } from 'react-native-elements';
 
 class Preferences extends React.Component {
   constructor(props) {
@@ -15,13 +17,17 @@ class Preferences extends React.Component {
         this.props.navigator.dismissModal();
       }
       if (event.id == 'save') {
-        this.submitForm();
+        this.handleSubmit();
       }
     }
   }
 
-  submitForm() {
+  handleSubmit() {
 
+  }
+
+  update(field) {
+    console.log(field);
   }
 
   render() {
@@ -30,7 +36,10 @@ class Preferences extends React.Component {
     return (
       <View style={{flex:1, backgroundColor:'#FFD6C0'}}>
         <ScrollView style={containerStyle}>
-
+          <View>
+            <FormLabel>Name</FormLabel>
+            <FormInput onChangeText={() => this.update("name")}/>
+          </View>
         </ScrollView>
       </View>
     );
