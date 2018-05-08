@@ -153,6 +153,7 @@ const styles = {
     flexDirection: 'column',
     flex: 1.3,
     marginTop: 0,
+    backgroundColor: 'white'
   },
 
   imageContainer: {
