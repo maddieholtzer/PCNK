@@ -47,6 +47,8 @@ https://github.com/invertase/react-native-firebase/blob/docs_old/docs/modules/st
 
 https://rnfirebase.io/docs/v4.0.x/storage/reference/storage
 
+#### teaset - React Native UI Library
+https://github.com/rilyu/teaset/blob/master/docs/cn/README.md
 
 ## Credit
 Big thanks to these awesome developers. We would have gone through more struggles without their previous exploration && contributions to the tech community.

@@ -104,7 +104,7 @@ export class App extends React.Component {
             screen: 'pcnk.SignInOptions',
             title: 'SignInOptions',
             navigatorStyle: {
-              navBarHidden: true
+              navBarHidden: false
             }
           }
         });

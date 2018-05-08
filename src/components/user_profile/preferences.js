@@ -2,12 +2,23 @@ import React from 'react';
 import { View, Text, ScrollView } from 'react-native';
 import { connect } from 'react-redux';
 import { store } from '../../../App';
-import { FormLabel, FormInput, FormValidationMessage } from 'react-native-elements';
-import { CheckBox } from 'react-native-elements';
+import { Select } from 'teaset';
 
 class Preferences extends React.Component {
   constructor(props) {
     super(props);
+    this.state = {
+      value: 'Anything'
+    }
+    this.items = [
+      'Anything',
+      'Fruit',
+      'Veggies',
+      'Meal',
+      'Snack',
+      'Baked Good',
+      'Dessert',
+    ];
     this.props.navigator.setOnNavigatorEvent(this.onNavigatorEvent.bind(this));
   }
 
@@ -36,10 +47,14 @@ class Preferences extends React.Component {
     return (
       <View style={{flex:1, backgroundColor:'#FFD6C0'}}>
         <ScrollView style={containerStyle}>
-          <View>
-            <FormLabel>Name</FormLabel>
-            <FormInput onChangeText={() => this.update("name")}/>
-          </View>
+          <Select
+            style={{width: 200}}
+            value={this.state.value}
+            items={this.items}
+            placeholder='Select item'
+            pickerTitle='Default'
+            onSelected={(item, index) => this.setState({value: item})}
+            />
         </ScrollView>
       </View>
     );

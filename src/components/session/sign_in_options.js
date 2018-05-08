@@ -40,13 +40,13 @@ export class SignInOptions extends React.Component {
       </View>
     );
   }
-  
+
   /*
   onLoginPress:
     Changes the root value of the app to be 'after-login', changing it to tab view
   */
   onLoginPress() {
-    this.props.dispatch(appActions.login());   
+    this.props.dispatch(appActions.login());
   }
 }
 
