@@ -32,7 +32,7 @@ class Settings extends React.Component {
     if (name=='assistant') {
       Navigation.showModal({
         screen: 'pcnk.Help', // unique ID registered with Navigation.registerScreen
-        title: 'How to Use PCNK', // title of the screen as appears in the nav bar (optional)
+        title: 'Q&A', // title of the screen as appears in the nav bar (optional)
         navigatorButtons: {leftButtons},
         animationType: 'slide-up' // 'none' / 'slide-up' , appear animation for the modal (optional, default 'slide-up')
       });
@@ -89,7 +89,7 @@ const styles = {
 
 const list = [
   {
-    title: 'How to use PCNK',
+    title: 'Q&A',
     icon: 'assistant'
   },
   {

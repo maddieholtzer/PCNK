@@ -25,6 +25,9 @@ class Help extends React.Component {
           <Text style={contentStyle}>PCNK is built by 4 developers: Alizeh Iqbal, Carolyn Scoville, Mattie Holtzer, Yangchen Shen. </Text>
           <Text style={headerStyle}>Github Repo</Text>
           <Text style={linkStyle} onPress={() => Linking.openURL('https://github.com/mattieholtzer/PCNK')}> github.com/mattieholtzer/PCNK </Text>
+          <Text style={contentStyle}></Text>
+          <Text style={contentStyle}></Text>
+          <Text style={contentStyle}></Text>
         </ScrollView>
       </View>
     );
@@ -34,8 +37,6 @@ class Help extends React.Component {
 const styles = {
   containerStyle: {
     flex: 1,
-    marginTop: 0.3,
-    marginBottom: 0.3,
     borderBottomWidth: 0.5,
     borderTopWidth: 0.5,
     borderColor: '#A3A1A2',
@@ -43,7 +44,8 @@ const styles = {
   },
 
   headerStyle: {
-    marginTop: 10,
+    marginTop: 30,
+    marginBottom: 10,
     fontSize: 20,
     fontWeight: '700',
     color: '#333',
@@ -54,7 +56,7 @@ const styles = {
   contentStyle: {
     marginTop: 10,
     fontSize: 16,
-    fontWeight: '300',
+    fontWeight: '500',
     color: '#333',
     marginLeft: 25,
     marginRight: 25
@@ -63,7 +65,7 @@ const styles = {
   linkStyle: {
     marginTop: 10,
     fontSize: 16,
-    fontWeight: '300',
+    fontWeight: '500',
     color: 'blue',
     marginLeft: 25,
     marginRight: 25

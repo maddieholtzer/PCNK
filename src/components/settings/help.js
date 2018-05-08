@@ -16,17 +16,49 @@ class Help extends React.Component {
   }
 
   render() {
-    const { containerStyle, headerStyle, contentStyle } = styles;
+    const { containerStyle, headerStyle, contentStyle, subheaderStyle } = styles;
 
     return (
       <View style={{flex:1, backgroundColor:'#FFD6C0'}}>
         <ScrollView style={containerStyle}>
           <Text style={headerStyle}>What is PCNK</Text>
-          <Text style={contentStyle}>PCNK is a mobile app for you to give away or take food within a personal network.</Text>
+          <Text style={contentStyle}>
+            PCNK is a mobile app for you to give away or take food within your
+            personal network.
+          </Text>
+          <Text style={contentStyle}></Text>
+          <Text style={contentStyle}>
+            Give away food + Get free food
+          </Text>
+          <Text style={contentStyle}>
+            = Reduce food waste + Save money
+          </Text>
           <Text style={headerStyle}>How do I start?</Text>
-          <Text style={contentStyle}>Create a group, or join an existing group. Then you can post food items to give away, or take food from the "pantry".</Text>
-          <Text style={headerStyle}>Thank you!</Text>
-          <Text style={contentStyle}>Together we can reduce food waste.</Text>
+          <Text style={subheaderStyle}>1. Add groups:</Text>
+          <Text style={contentStyle}>
+             On the bottom navigation bar, click the "Group" tab.
+            Create a group, or join an existing group.
+          </Text>
+          <Text style={subheaderStyle}>2. Post food items: </Text>
+          <Text style={contentStyle}>
+            On the bottom navigation bar, click the "Camera" tab.
+            Then you can post food items to your groups.
+          </Text>
+          <Text style={subheaderStyle}>3. Review posted food items: </Text>
+          <Text style={contentStyle}>
+            On the bottom navigation bar, click the "Giveaway" tab.
+          </Text>
+          <Text style={subheaderStyle}>4. Take food items: </Text>
+          <Text style={contentStyle}>
+            On the bottom navigation bar, click the "Pantry" tab.
+            Then you will see the recommended items for you based on your preferences.
+          </Text>
+          <Text style={headerStyle}>How to edit my preferences? </Text>
+          <Text style={contentStyle}>On the bottom navigation bar, click the "Profile" tab.
+          Then click the "Edit Preferences" button to set or change your preferences.</Text>
+          <Text style={contentStyle}></Text>
+          <Text style={contentStyle}></Text>
+          <Text style={contentStyle}></Text>
         </ScrollView>
       </View>
     );
@@ -36,8 +68,6 @@ class Help extends React.Component {
 const styles = {
   containerStyle: {
     flex: 1,
-    marginTop: 0.3,
-    marginBottom: 0.3,
     borderBottomWidth: 0.5,
     borderTopWidth: 0.5,
     borderColor: '#A3A1A2',
@@ -45,7 +75,8 @@ const styles = {
   },
 
   headerStyle: {
-    marginTop: 10,
+    marginTop: 30,
+    marginBottom: 10,
     fontSize: 20,
     fontWeight: '700',
     color: '#333',
@@ -55,7 +86,15 @@ const styles = {
   contentStyle: {
     marginTop: 10,
     fontSize: 16,
-    fontWeight: '300',
+    fontWeight: '500',
+    color: '#333',
+    marginLeft: 25,
+    marginRight: 25
+  },
+  subheaderStyle: {
+    marginTop: 10,
+    fontSize: 16,
+    fontWeight: '700',
     color: '#333',
     marginLeft: 25,
     marginRight: 25
