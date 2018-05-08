@@ -52,7 +52,8 @@ class Preferences extends React.Component {
             value={this.state.value}
             items={this.items}
             placeholder='Select item'
-            pickerTitle='Default'
+            pickerTitle='Select the your favorite food category'
+            pickerType='popover'
             onSelected={(item, index) => this.setState({value: item})}
             />
         </ScrollView>
