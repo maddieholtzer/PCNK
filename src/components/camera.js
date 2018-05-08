@@ -14,7 +14,7 @@ class OurCamera extends React.Component {
               }}
               type={RNCamera.Constants.Type.back}
               style={preview}
-              flashMode={RNCamera.Constants.FlashMode.on}
+              flashMode={RNCamera.Constants.FlashMode.off}
               permissionDialogTitle={'Permission to use camera'}
               permissionDialogMessage={'We need your permission to use your camera phone'}
           />
