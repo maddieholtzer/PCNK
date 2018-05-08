@@ -68,6 +68,7 @@ class FinalPhotoDeets extends React.Component{
     const { textStyle, containerStyle, imageStyle, imageContainer, textContainer,
       otherContainer, buttonStyle, iconStyle } = styles;
     return (
+      <View style={containerStyle}>
       <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
         <View style={containerStyle}>
           <View style={imageContainer}>
@@ -169,7 +170,6 @@ class FinalPhotoDeets extends React.Component{
         </View>
       </TouchableWithoutFeedback>
 
-      <View style={containerStyle}>
       <View style={imageContainer}>
       <Image source={{uri: this.state.img}} style={imageStyle}/>
       <TextInput placeholder='  Where did you put it/Very brief description' multiline={true}
