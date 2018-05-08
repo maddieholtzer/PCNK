@@ -42,20 +42,34 @@ class Preferences extends React.Component {
   }
 
   render() {
-    const { containerStyle } = styles;
+    const {
+      containerStyle,
+      listItemStyle,
+      listWrapperStyle,
+      headerStyle,
+      textStyle
+    } = styles;
 
     return (
       <View style={{flex:1, backgroundColor:'#FFD6C0'}}>
         <ScrollView style={containerStyle}>
-          <Select
-            style={{width: 200}}
-            value={this.state.value}
-            items={this.items}
-            placeholder='Select item'
-            pickerTitle='Select the your favorite food category'
-            pickerType='popover'
-            onSelected={(item, index) => this.setState({value: item})}
-            />
+          <View style={listWrapperStyle}>
+            <View style={listItemStyle}>
+              <Text style={headerStyle}>Most Wanted Food Types</Text>
+            </View>
+            <View style={listItemStyle}>
+              <Text style={textStyle}>1st Choice</Text>
+              <Select
+                style={{width: 150, marginRight: 20}}
+                value={this.state.value}
+                items={this.items}
+                placeholder='Select item'
+                pickerTitle='Select the your favorite food category'
+                pickerType='popover'
+                onSelected={(item, index) => this.setState({value: item})}
+                />
+            </View>
+          </View>
         </ScrollView>
       </View>
     );
@@ -65,13 +79,37 @@ class Preferences extends React.Component {
 const styles = {
   containerStyle: {
     flex: 1,
+    backgroundColor: "#ffffff",
     marginTop: 0.3,
     marginBottom: 0.3,
     borderBottomWidth: 0.5,
     borderTopWidth: 0.5,
     borderColor: '#A3A1A2',
-    backgroundColor: "#ffffff",
+    backgroundColor: "#F8f8f9",
   },
+  listItemStyle: {
+    height: 50,
+    flex: 1,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    borderTopWidth: 0.5,
+    borderColor:'#A3A1A2',
+    backgroundColor: 'white'
+  },
+  listWrapperStyle: {
+    marginTop: 30,
+    marginBottom: 10,
+    borderBottomWidth: 0.5,
+    borderColor:'#A3A1A2',
+  },
+  headerStyle: {
+    fontWeight: '700',
+    marginLeft: 20
+  },
+  textStyle:{
+    marginLeft: 20,
+  }
 };
 
 export default connect()(Preferences);
