@@ -1,6 +1,9 @@
 package com.pcnk;
 
 import com.facebook.react.ReactActivity;
+import io.invertase.firebase.RNFirebasePackage;
+import com.RNFetchBlob.RNFetchBlobPackage;
+import org.reactnative.camera.RNCameraPackage;
 
 public class MainActivity extends ReactActivity {
 
