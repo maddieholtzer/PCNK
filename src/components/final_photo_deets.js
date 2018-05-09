@@ -19,13 +19,22 @@ class FinalPhotoDeets extends React.Component{
     this.setSliderval = this.setSliderval.bind(this);
     this.createFoodItem = this.createFoodItem.bind(this);
     this.getSelectedImages = this.getSelectedImages.bind(this);
+    this.setPhotoName = this.setPhotoName.bind(this);
+  }
+
+  setPhotoName(image) {
+    let slicedImageName = image.substring(image.length - 6, image.length);
+    let newName = (Date.now() + parseInt(slicedImageName)).toString();
+    return newName;
   }
 
   getSelectedImages() {
     const metadata = {
-    contentType: 'image/jpeg'
-};
-    firebase.storage().ref().putFile(`${this.props.img}`, metadata)
+      contentType: 'image/jpeg'
+    };
+    let photoName = this.setPhotoName(`${this.props.img}`);
+    firebase.storage().ref('foodImages').child(photoName).putFile(this.props.img,
+    metadata)
     .then(function (uploadedFile) {
       console.log(uploadedFile);
     })
@@ -33,7 +42,6 @@ class FinalPhotoDeets extends React.Component{
       console.log(error);
   });
 }
-
 
 
   setSliderval(val){
