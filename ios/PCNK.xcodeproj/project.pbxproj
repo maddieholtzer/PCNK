@@ -24,6 +24,11 @@
 		146834051AC3E58100842450 /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 146834041AC3E56700842450 /* libReact.a */; };
 		20AFFC5DE66145D1B08588A5 /* Octicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0A5876D734BA489DA9D1F719 /* Octicons.ttf */; };
 		2632E23920A23F1B00F5AF23 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2632E23820A23F1B00F5AF23 /* GoogleService-Info.plist */; };
+		268F53CF20A7662600C9D5E6 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB61A68108700A75B9A /* Info.plist */; };
+		268F53FB20A7662700C9D5E6 /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB61A68108700A75B9A /* Info.plist */; };
+		268F53FC20A7663700C9D5E6 /* main.jsbundle in Resources */ = {isa = PBXBuildFile; fileRef = 008F07F21AC5B25A0029DE68 /* main.jsbundle */; };
+		268F53FD20A7663700C9D5E6 /* main.jsbundle in Resources */ = {isa = PBXBuildFile; fileRef = 008F07F21AC5B25A0029DE68 /* main.jsbundle */; };
+		268F53FE20A7665200C9D5E6 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2632E23820A23F1B00F5AF23 /* GoogleService-Info.plist */; };
 		2AD49A1918EE41728A0864B8 /* libRCTFBSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D7B49D3C1DBF49C38103112D /* libRCTFBSDK.a */; };
 		2D02E4BC1E0B4A80006451C7 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		2D02E4BD1E0B4A84006451C7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
@@ -895,7 +900,11 @@
 				TargetAttributes = {
 					00E356ED1AD99517003FC87E = {
 						CreatedOnToolsVersion = 6.2;
+						DevelopmentTeam = Z47794XJCS;
 						TestTargetID = 13B07F861A680F5B00A75B9A;
+					};
+					13B07F861A680F5B00A75B9A = {
+						DevelopmentTeam = Z47794XJCS;
 					};
 					2D02E47A1E0B4A5D006451C7 = {
 						CreatedOnToolsVersion = 8.2.1;
@@ -1319,6 +1328,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				268F53FB20A7662700C9D5E6 /* Info.plist in Resources */,
+				268F53FD20A7663700C9D5E6 /* main.jsbundle in Resources */,
+				268F53FE20A7665200C9D5E6 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1333,7 +1345,9 @@
 				80A3F23241904AC8B4B655BF /* Feather.ttf in Resources */,
 				4D349940B72C4C18821D93F8 /* FontAwesome.ttf in Resources */,
 				6BB491C7A46D4B4B92050B61 /* Foundation.ttf in Resources */,
+				268F53FC20A7663700C9D5E6 /* main.jsbundle in Resources */,
 				EFB0090648A544C5BC5A6CCE /* Ionicons.ttf in Resources */,
+				268F53CF20A7662600C9D5E6 /* Info.plist in Resources */,
 				4317A96BFF264C91BDF0C1D2 /* MaterialCommunityIcons.ttf in Resources */,
 				D941AF46545B4877B381235F /* MaterialIcons.ttf in Resources */,
 				20AFFC5DE66145D1B08588A5 /* Octicons.ttf in Resources */,
@@ -1508,6 +1522,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = Z47794XJCS;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
@@ -1539,6 +1554,7 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
+				DEVELOPMENT_TEAM = Z47794XJCS;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(SRCROOT)/../node_modules/react-native-firebase/ios/RNFirebase/**",
@@ -1568,6 +1584,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = NO;
+				DEVELOPMENT_TEAM = Z47794XJCS;
 				DISPLAY_NAME = PCNK;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1598,6 +1615,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = Z47794XJCS;
 				DISPLAY_NAME = PCNK;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
