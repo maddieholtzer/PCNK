@@ -38,8 +38,10 @@ class FinalPhotoDeets extends React.Component{
     .then(function (uploadedFile) {
       firebase.storage().ref('foodImages').child(photoName)
       .getDownloadURL().then((url) => {
-          let foodItem = firebase.database().ref('foods/' + key)
-          .set({imgURL: url});
+        firebase.database().ref('foods/' + key)
+          .update({imgURL: url});
+       }).catch(function (error) {
+         console.log(error);
        });
 })
     .catch(function (error) {
