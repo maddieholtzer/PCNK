@@ -28,7 +28,7 @@ class FinalPhotoDeets extends React.Component{
     return newName;
   }
 
-  getSelectedImages() {
+  getSelectedImages(key) {
     const metadata = {
       contentType: 'image/jpeg'
     };
@@ -36,13 +36,18 @@ class FinalPhotoDeets extends React.Component{
     firebase.storage().ref('foodImages').child(photoName).putFile(this.props.img,
     metadata)
     .then(function (uploadedFile) {
-      console.log(uploadedFile);
-    })
+      firebase.storage().ref('foodImages').child(photoName)
+      .getDownloadURL().then((url) => {
+        firebase.database().ref('foods/' + key)
+          .update({imgURL: url});
+       }).catch(function (error) {
+         console.log(error);
+       });
+})
     .catch(function (error) {
       console.log(error);
   });
 }
-
 
   setSliderval(val){
     let sliderval2 = '';
@@ -63,13 +68,9 @@ class FinalPhotoDeets extends React.Component{
   createFoodItem() {
     const ref = firebase.database().ref("foods");
     const {img} = this.props;
-    ref.push({imgURL: img, text: this.state.text, value: this.state.value,
-      sliderval: this.state.sliderval, category: this.state.category})
-      .then(function () {
-        return ref.once("value");
-      }).then(function (snapshot) {
-        console.log(snapshot.val());
-      });
+    const key = ref.push({imgURL: img, text: this.state.text, value: this.state.value,
+      sliderval: this.state.sliderval, category: this.state.category}).key;
+    return key;
   }
 
   render() {
@@ -171,8 +172,8 @@ class FinalPhotoDeets extends React.Component{
               textStyle={{fontSize: 20, alignSelf: 'center', marginTop: 10}}
               id='post-photo'
               onPress={() => {
-                this.createFoodItem();
-                this.getSelectedImages();
+                const key = this.createFoodItem();
+                this.getSelectedImages(key);
                 Navigation.dismissAllModals();
               }}
               >
