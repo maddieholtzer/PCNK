@@ -3,6 +3,7 @@ import { View, Text, Image, Dimensions, Slider, TextInput, Keyboard,
          TouchableWithoutFeedback, Platform } from 'react-native';
 import CustomButton from './emoji_button';
 import {Navigation} from 'react-native-navigation';
+import { store } from '../../App';
 import firebase from 'react-native-firebase';
 
 class FinalPhotoDeets extends React.Component{
@@ -14,7 +15,8 @@ class FinalPhotoDeets extends React.Component{
       value: 0,
       img: props.img,
       sliderval: "ASAP",
-      category: "Please select one"
+      category: "Please select one",
+      user: store.getState().auth.currentUser.user._user.email
     };
     this.setSliderval = this.setSliderval.bind(this);
     this.createFoodItem = this.createFoodItem.bind(this);
@@ -30,7 +32,10 @@ class FinalPhotoDeets extends React.Component{
 
   getSelectedImages(key) {
     const metadata = {
-      contentType: 'image/jpeg'
+      contentType: 'image/jpeg',
+      customMetadata: {
+        'user': `${store.getState().auth.currentUser.user._user.email}`
+      }
     };
     let photoName = this.setPhotoName(`${this.props.img}`);
     firebase.storage().ref('foodImages').child(photoName).putFile(this.props.img,
@@ -68,8 +73,12 @@ class FinalPhotoDeets extends React.Component{
   createFoodItem() {
     const ref = firebase.database().ref("foods");
     const {img} = this.props;
-    const key = ref.push({imgURL: img, text: this.state.text, value: this.state.value,
-      sliderval: this.state.sliderval, category: this.state.category}).key;
+    const key = ref.push({imgURL: img,
+                          text: this.state.text,
+                          value: this.state.value,
+                          sliderval: this.state.sliderval,
+                          category: this.state.category,
+                          user: this.state.user}).key;
     return key;
   }
 
