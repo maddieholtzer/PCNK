@@ -2,6 +2,7 @@ import React from 'react';
 import { View, Text, Image } from 'react-native';
 import firebase from 'react-native-firebase';
 import { store } from '../../../App';
+import FoodIndexItem from './food_index_item';
 
 export default class Giveaway extends React.Component {
   constructor(props) {
@@ -22,17 +23,18 @@ export default class Giveaway extends React.Component {
         }
       });
     });
-    console.log(items);
   }
 
   renderPhotos() {
-
+    return this.state.items.map( item => <FoodIndexItem  key={item.imgURL}
+                                                         item={item}/>);
   }
 
   render() {
     const { viewStyle, photoRowStyle } = styles;
     return (
       <View style={viewStyle}>
+        {this.renderPhotos()}
       </View>
     );
   }
