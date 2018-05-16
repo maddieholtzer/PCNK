@@ -31,13 +31,13 @@ class FinalPhotoDeets extends React.Component{
   }
 
   getSelectedImages(key) {
+    let photoName = this.setPhotoName(`${this.props.img}`);
     const metadata = {
       contentType: 'image/jpeg',
       customMetadata: {
-        'user': `${store.getState().auth.currentUser.user._user.email}`
+        'user': `${store.getState().auth.currentUser.user._user.email}`,
       }
     };
-    let photoName = this.setPhotoName(`${this.props.img}`);
     firebase.storage().ref('foodImages').child(photoName).putFile(this.props.img,
     metadata)
     .then(function (uploadedFile) {
@@ -48,9 +48,8 @@ class FinalPhotoDeets extends React.Component{
        }).catch(function (error) {
          console.log(error);
        });
-})
-    .catch(function (error) {
-      console.log(error);
+}).catch(function (error) {
+    console.log(error);
   });
 }
 

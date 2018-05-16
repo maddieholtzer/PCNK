@@ -5,8 +5,8 @@ import Preferences from './components/user_profile/preferences';
 import Help from './components/settings/help';
 import Contact from './components/settings/contact';
 import Group from './components/group/group';
-import Camera from './components/camera'
-import Giveaway from './components/giveaway'
+import Camera from './components/camera';
+import Giveaway from './components/giveaway/giveaway';
 import CheckPhotoQuality from './components/check_photo_quality';
 import Splash from './components/splash';
 import SignInOptions from './components/session/sign_in_options';
