@@ -28,6 +28,20 @@ export default class Giveaway extends React.Component {
     });
   }
 
+  componentWillUnmount() {
+    const { currentUser, foodItems } = this.state;
+    const databaseRef = firebase.database().ref("foods");
+    databaseRef.once("value", (snapshot) => {
+      const previousFoodItems = foodItems;
+      snapshot.forEach(childSnapshot => {
+        if (currentUser.email === childSnapshot.val().user) {
+          previousFoodItems.push(childSnapshot.val());
+        }
+      });
+      this.setState({ foodItems: previousFoodItems });
+    });
+  }
+
   renderPhotos() {
     console.log(this.state.foodItems.length);
     return this.state.foodItems.map( foodItem => <FoodIndexItem
