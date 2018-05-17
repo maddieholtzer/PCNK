@@ -5,18 +5,21 @@ import { View, Image } from 'react-native';
 const FoodIndexItem = ({foodItem}) => {
 
   return (
-
-      <View>
-        <Image source={{uri: foodItem.imgURL}} style={styles.thumbnailStyle}/>
-      </View>
-
+    <View style={styles.imageContainerStyle}>
+      <Image source={{uri: foodItem.imgURL}} style={styles.thumbnailStyle}/>
+    </View>
   );
 };
 
 const styles = {
   thumbnailStyle: {
-    height: 100,
-    width: 100,
+    height: 110,
+    width: 110,
+    borderWidth: 1,
+    borderColor: "#FFFFFF",
+  },
+  imageContainerStyle: {
+
   },
 };
 

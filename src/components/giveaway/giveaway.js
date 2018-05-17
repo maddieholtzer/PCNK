@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, Image } from 'react-native';
+import { View, Text, Image, ScrollView } from 'react-native';
 import firebase from 'react-native-firebase';
 import { store } from '../../../App';
 import FoodIndexItem from './food_index_item';
@@ -38,11 +38,11 @@ export default class Giveaway extends React.Component {
   render() {
     const { viewStyle, photoRowStyle } = styles;
     return (
-      <View style={viewStyle}>
+      <ScrollView style={viewStyle}>
         <View style={photoRowStyle}>
           {this.renderPhotos()}
         </View>
-      </View>
+      </ScrollView>
     );
   }
 }
@@ -58,9 +58,10 @@ const styles = {
     backgroundColor: "#ffffff",
   },
   photoRowStyle: {
-    padding: 5,
+    flex: 1,
     flexDirection: 'row',
-    justifyContent: 'space-around',
-    position: 'relative',
+    flexWrap: 'wrap',
+    margin: 22,
+    alignItems: 'stretch',
   }
 };
