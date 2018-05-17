@@ -7,34 +7,41 @@ import FoodIndexItem from './food_index_item';
 export default class Giveaway extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { items: [],
+    this.state = { foodItems: [],
                    currentUser: store.getState().auth.currentUser.user._user };
 
-
+    this.renderPhotos = this.renderPhotos.bind(this);
+    this.setState = this.setState.bind(this);
   }
 
   componentWillMount() {
-    const { currentUser, items } = this.state;
+    const { currentUser, foodItems } = this.state;
     const databaseRef = firebase.database().ref("foods");
-    databaseRef.once("value", function (snapshot) {
-      snapshot.forEach(function (childSnapshot) {
+    databaseRef.once("value", (snapshot) => {
+      const previousFoodItems = foodItems;
+      snapshot.forEach(childSnapshot => {
         if (currentUser.email === childSnapshot.val().user) {
-          items.push(childSnapshot.val());
+          previousFoodItems.push(childSnapshot.val());
         }
       });
+      this.setState({ foodItems: previousFoodItems });
     });
   }
 
   renderPhotos() {
-    return this.state.items.map( item => <FoodIndexItem  key={item.imgURL}
-                                                         item={item}/>);
+    console.log(this.state.foodItems.length);
+    return this.state.foodItems.map( foodItem => <FoodIndexItem
+                                                 key={foodItem.imgURL}
+                                                 foodItem={foodItem} />);
   }
 
   render() {
     const { viewStyle, photoRowStyle } = styles;
     return (
       <View style={viewStyle}>
-        {this.renderPhotos()}
+        <View style={photoRowStyle}>
+          {this.renderPhotos()}
+        </View>
       </View>
     );
   }

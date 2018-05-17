@@ -2,14 +2,14 @@ import React from 'react';
 import CardSection from '../card_section';
 import { View, Image } from 'react-native';
 
-const FoodIndexItem = ({item}) => {
+const FoodIndexItem = ({foodItem}) => {
 
   return (
-    <CardSection>
+
       <View>
-        <Image source={{uri: item.imgURL}} style={styles.thumbnailStyle}/>
+        <Image source={{uri: foodItem.imgURL}} style={styles.thumbnailStyle}/>
       </View>
-    </CardSection>
+
   );
 };
 
